@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\laragon\www\ci4-books\app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=9.2.32" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=9.2.32" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=9.2.32" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">C:\laragon\www\ci4-books\app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Config/Database.php.html#10">Config\Database</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Config/Exceptions.php.html#14">Config\Exceptions</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Config/Format.php.html#10">Config\Format</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Config/Mimes.php.html#21">Config\Mimes</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#9">App\Controllers\AuthorController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/BaseController.php.html#22">App\Controllers\BaseController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#12">App\Controllers\BookController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Home.php.html#5">App\Controllers\Home</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/ReportController.php.html#8">App\Controllers\ReportController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#9">App\Controllers\SubjectController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Database/Migrations/2025-10-16-002755_CreateBooksManagementTables.php.html#7">App\Database\Migrations\CreateBooksManagementTables</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Database/Seeds/CreateSampleData.php.html#7">App\Database\Seeds\CreateSampleData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/BookModel.php.html#7">App\Models\BookModel</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controllers/BookController.php.html#12">App\Controllers\BookController</a></td><td class="text-right">650</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#9">App\Controllers\AuthorController</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#9">App\Controllers\SubjectController</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Controllers/ReportController.php.html#8">App\Controllers\ReportController</a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Config/Mimes.php.html#21">Config\Mimes</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Database/Migrations/2025-10-16-002755_CreateBooksManagementTables.php.html#7">App\Database\Migrations\CreateBooksManagementTables</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Models/BookModel.php.html#7">App\Models\BookModel</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Config/Database.php.html#10">Config\Database</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Config/Database.php.html#78"><abbr title="Config\Database::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Home.php.html#7"><abbr title="App\Controllers\Home::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/BookModel.php.html#67"><abbr title="App\Models\BookModel::getBooksWithRelations">getBooksWithRelations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Database/Seeds/CreateSampleData.php.html#9"><abbr title="App\Database\Seeds\CreateSampleData::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Database/Migrations/2025-10-16-002755_CreateBooksManagementTables.php.html#135"><abbr title="App\Database\Migrations\CreateBooksManagementTables::down">down</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Database/Migrations/2025-10-16-002755_CreateBooksManagementTables.php.html#9"><abbr title="App\Database\Migrations\CreateBooksManagementTables::up">up</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#86"><abbr title="App\Controllers\SubjectController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#54"><abbr title="App\Controllers\SubjectController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#28"><abbr title="App\Controllers\SubjectController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#18"><abbr title="App\Controllers\SubjectController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#13"><abbr title="App\Controllers\SubjectController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/ReportController.php.html#87"><abbr title="App\Controllers\ReportController::getConsolidatedReport">getConsolidatedReport</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/ReportController.php.html#27"><abbr title="App\Controllers\ReportController::exportExcel">exportExcel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/ReportController.php.html#17"><abbr title="App\Controllers\ReportController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/ReportController.php.html#12"><abbr title="App\Controllers\ReportController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#187"><abbr title="App\Controllers\BookController::getBook">getBook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Config/Exceptions.php.html#104"><abbr title="Config\Exceptions::handler">handler</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#177"><abbr title="App\Controllers\BookController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#103"><abbr title="App\Controllers\BookController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#39"><abbr title="App\Controllers\BookController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#27"><abbr title="App\Controllers\BookController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#19"><abbr title="App\Controllers\BookController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/BaseController.php.html#49"><abbr title="App\Controllers\BaseController::initController">initController</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#86"><abbr title="App\Controllers\AuthorController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#54"><abbr title="App\Controllers\AuthorController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#28"><abbr title="App\Controllers\AuthorController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#18"><abbr title="App\Controllers\AuthorController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#13"><abbr title="App\Controllers\AuthorController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Config/Mimes.php.html#511"><abbr title="Config\Mimes::guessExtensionFromType">guessExtensionFromType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Config/Mimes.php.html#493"><abbr title="Config\Mimes::guessTypeFromExtension">guessTypeFromExtension</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Config/Format.php.html#73"><abbr title="Config\Format::getFormatter">getFormatter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/BookModel.php.html#82"><abbr title="App\Models\BookModel::getBookWithRelations">getBookWithRelations</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controllers/BookController.php.html#103"><abbr title="App\Controllers\BookController::edit">edit</abbr></a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#39"><abbr title="App\Controllers\BookController::create">create</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Controllers/ReportController.php.html#27"><abbr title="App\Controllers\ReportController::exportExcel">exportExcel</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Database/Migrations/2025-10-16-002755_CreateBooksManagementTables.php.html#9"><abbr title="App\Database\Migrations\CreateBooksManagementTables::up">up</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Config/Mimes.php.html#511"><abbr title="Config\Mimes::guessExtensionFromType">guessExtensionFromType</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#54"><abbr title="App\Controllers\AuthorController::edit">edit</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#54"><abbr title="App\Controllers\SubjectController::edit">edit</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#28"><abbr title="App\Controllers\AuthorController::create">create</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#28"><abbr title="App\Controllers\SubjectController::create">create</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Config/Mimes.php.html#493"><abbr title="Config\Mimes::guessTypeFromExtension">guessTypeFromExtension</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/AuthorController.php.html#86"><abbr title="App\Controllers\AuthorController::delete">delete</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/SubjectController.php.html#86"><abbr title="App\Controllers\SubjectController::delete">delete</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Config/Database.php.html#78"><abbr title="Config\Database::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#177"><abbr title="App\Controllers\BookController::delete">delete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/BookController.php.html#187"><abbr title="App\Controllers\BookController::getBook">getBook</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Models/BookModel.php.html#82"><abbr title="App\Models\BookModel::getBookWithRelations">getBookWithRelations</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.32</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.33</a> and <a href="https://phpunit.de/">PHPUnit 9.6.29</a> at Thu Oct 16 10:13:52 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=9.2.32" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=9.2.32" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=9.2.32" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([13,0,0,0,0,0,0,0,0,0,0,25], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([32,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"Config\/CURLRequest.php.html#7\">Config\\CURLRequest<\/a>"],[100,0,"<a href=\"Config\/Cache.php.html#14\">Config\\Cache<\/a>"],[100,0,"<a href=\"Config\/ContentSecurityPolicy.php.html#16\">Config\\ContentSecurityPolicy<\/a>"],[100,0,"<a href=\"Config\/Cookie.php.html#8\">Config\\Cookie<\/a>"],[0,2,"<a href=\"Config\/Database.php.html#10\">Config\\Database<\/a>"],[100,0,"<a href=\"Config\/DocTypes.php.html#8\">Config\\DocTypes<\/a>"],[100,0,"<a href=\"Config\/Email.php.html#7\">Config\\Email<\/a>"],[100,0,"<a href=\"Config\/Encryption.php.html#13\">Config\\Encryption<\/a>"],[0,1,"<a href=\"Config\/Exceptions.php.html#14\">Config\\Exceptions<\/a>"],[100,0,"<a href=\"Config\/Feature.php.html#10\">Config\\Feature<\/a>"],[100,0,"<a href=\"Config\/Filters.php.html#12\">Config\\Filters<\/a>"],[100,0,"<a href=\"Config\/ForeignCharacters.php.html#10\">Config\\ForeignCharacters<\/a>"],[0,1,"<a href=\"Config\/Format.php.html#10\">Config\\Format<\/a>"],[100,0,"<a href=\"Config\/Generators.php.html#7\">Config\\Generators<\/a>"],[100,0,"<a href=\"Config\/Honeypot.php.html#7\">Config\\Honeypot<\/a>"],[100,0,"<a href=\"Config\/Images.php.html#9\">Config\\Images<\/a>"],[100,0,"<a href=\"Config\/Kint.php.html#21\">Config\\Kint<\/a>"],[100,0,"<a href=\"Config\/Logger.php.html#8\">Config\\Logger<\/a>"],[100,0,"<a href=\"Config\/Migrations.php.html#7\">Config\\Migrations<\/a>"],[0,9,"<a href=\"Config\/Mimes.php.html#21\">Config\\Mimes<\/a>"],[100,0,"<a href=\"Config\/Pager.php.html#7\">Config\\Pager<\/a>"],[100,0,"<a href=\"Config\/Publisher.php.html#13\">Config\\Publisher<\/a>"],[100,0,"<a href=\"Config\/Security.php.html#7\">Config\\Security<\/a>"],[100,0,"<a href=\"Config\/Session.php.html#9\">Config\\Session<\/a>"],[100,0,"<a href=\"Config\/Toolbar.php.html#24\">Config\\Toolbar<\/a>"],[100,0,"<a href=\"Config\/Validation.php.html#11\">Config\\Validation<\/a>"],[100,0,"<a href=\"Config\/View.php.html#12\">Config\\View<\/a>"],[0,14,"<a href=\"Controllers\/AuthorController.php.html#9\">App\\Controllers\\AuthorController<\/a>"],[0,1,"<a href=\"Controllers\/BaseController.php.html#22\">App\\Controllers\\BaseController<\/a>"],[0,25,"<a href=\"Controllers\/BookController.php.html#12\">App\\Controllers\\BookController<\/a>"],[0,1,"<a href=\"Controllers\/Home.php.html#5\">App\\Controllers\\Home<\/a>"],[0,11,"<a href=\"Controllers\/ReportController.php.html#8\">App\\Controllers\\ReportController<\/a>"],[0,14,"<a href=\"Controllers\/SubjectController.php.html#9\">App\\Controllers\\SubjectController<\/a>"],[0,8,"<a href=\"Database\/Migrations\/2025-10-16-002755_CreateBooksManagementTables.php.html#7\">App\\Database\\Migrations\\CreateBooksManagementTables<\/a>"],[0,1,"<a href=\"Database\/Seeds\/CreateSampleData.php.html#7\">App\\Database\\Seeds\\CreateSampleData<\/a>"],[100,0,"<a href=\"Models\/AuthorModel.php.html#7\">App\\Models\\AuthorModel<\/a>"],[0,3,"<a href=\"Models\/BookModel.php.html#7\">App\\Models\\BookModel<\/a>"],[100,0,"<a href=\"Models\/SubjectModel.php.html#7\">App\\Models\\SubjectModel<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,2,"<a href=\"Config\/Database.php.html#78\">Config\\Database::__construct<\/a>"],[0,1,"<a href=\"Config\/Exceptions.php.html#104\">Config\\Exceptions::handler<\/a>"],[0,1,"<a href=\"Config\/Format.php.html#73\">Config\\Format::getFormatter<\/a>"],[0,3,"<a href=\"Config\/Mimes.php.html#493\">Config\\Mimes::guessTypeFromExtension<\/a>"],[0,6,"<a href=\"Config\/Mimes.php.html#511\">Config\\Mimes::guessExtensionFromType<\/a>"],[0,1,"<a href=\"Controllers\/AuthorController.php.html#13\">App\\Controllers\\AuthorController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/AuthorController.php.html#18\">App\\Controllers\\AuthorController::index<\/a>"],[0,4,"<a href=\"Controllers\/AuthorController.php.html#28\">App\\Controllers\\AuthorController::create<\/a>"],[0,5,"<a href=\"Controllers\/AuthorController.php.html#54\">App\\Controllers\\AuthorController::edit<\/a>"],[0,3,"<a href=\"Controllers\/AuthorController.php.html#86\">App\\Controllers\\AuthorController::delete<\/a>"],[0,1,"<a href=\"Controllers\/BaseController.php.html#49\">App\\Controllers\\BaseController::initController<\/a>"],[0,1,"<a href=\"Controllers\/BookController.php.html#19\">App\\Controllers\\BookController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/BookController.php.html#27\">App\\Controllers\\BookController::index<\/a>"],[0,9,"<a href=\"Controllers\/BookController.php.html#39\">App\\Controllers\\BookController::create<\/a>"],[0,10,"<a href=\"Controllers\/BookController.php.html#103\">App\\Controllers\\BookController::edit<\/a>"],[0,2,"<a href=\"Controllers\/BookController.php.html#177\">App\\Controllers\\BookController::delete<\/a>"],[0,2,"<a href=\"Controllers\/BookController.php.html#187\">App\\Controllers\\BookController::getBook<\/a>"],[0,1,"<a href=\"Controllers\/Home.php.html#7\">App\\Controllers\\Home::index<\/a>"],[0,1,"<a href=\"Controllers\/ReportController.php.html#12\">App\\Controllers\\ReportController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/ReportController.php.html#17\">App\\Controllers\\ReportController::index<\/a>"],[0,8,"<a href=\"Controllers\/ReportController.php.html#27\">App\\Controllers\\ReportController::exportExcel<\/a>"],[0,1,"<a href=\"Controllers\/ReportController.php.html#87\">App\\Controllers\\ReportController::getConsolidatedReport<\/a>"],[0,1,"<a href=\"Controllers\/SubjectController.php.html#13\">App\\Controllers\\SubjectController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/SubjectController.php.html#18\">App\\Controllers\\SubjectController::index<\/a>"],[0,4,"<a href=\"Controllers\/SubjectController.php.html#28\">App\\Controllers\\SubjectController::create<\/a>"],[0,5,"<a href=\"Controllers\/SubjectController.php.html#54\">App\\Controllers\\SubjectController::edit<\/a>"],[0,3,"<a href=\"Controllers\/SubjectController.php.html#86\">App\\Controllers\\SubjectController::delete<\/a>"],[0,7,"<a href=\"Database\/Migrations\/2025-10-16-002755_CreateBooksManagementTables.php.html#9\">App\\Database\\Migrations\\CreateBooksManagementTables::up<\/a>"],[0,1,"<a href=\"Database\/Migrations\/2025-10-16-002755_CreateBooksManagementTables.php.html#135\">App\\Database\\Migrations\\CreateBooksManagementTables::down<\/a>"],[0,1,"<a href=\"Database\/Seeds\/CreateSampleData.php.html#9\">App\\Database\\Seeds\\CreateSampleData::run<\/a>"],[0,1,"<a href=\"Models\/BookModel.php.html#67\">App\\Models\\BookModel::getBooksWithRelations<\/a>"],[0,2,"<a href=\"Models\/BookModel.php.html#82\">App\\Models\\BookModel::getBookWithRelations<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
