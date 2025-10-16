@@ -1,68 +1,137 @@
-# CodeIgniter 4 Application Starter
+# Sistema de Cadastro de Livros - CI-Books
 
-## What is CodeIgniter?
+Este é um sistema de gerenciamento de livros desenvolvido com CodeIgniter 4, permitindo o cadastro de livros, autores e assuntos.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Pré-requisitos
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- PHP 7.4 ou superior
+- Composer
+- MySQL/MariaDB
+- Servidor web (Apache/Nginx) ou ambiente local como Laragon/XAMPP
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Instalação e Configuração
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+### 1. Clonar o Repositório
 
-## Installation & updates
+```bash
+git clone git@github.com:leonidasfsilva/ci-books.git
+cd ci-books
+```
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### 2. Instalar Dependências
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+```bash
+composer install
+```
 
-## Setup
+### 3. Configurar o Ambiente
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Copie o arquivo `env` para `.env`:
 
-## Important Change with index.php
+```bash
+cp env .env
+```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Edite o arquivo `.env` e configure as seguintes variáveis:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+```env
+# Configurações do banco de dados
+database.default.hostname = localhost
+database.default.database = books_management_ci4
+database.default.username = seu_usuario
+database.default.password = sua_senha
+database.default.DBDriver = MySQLi
 
-**Please** read the user guide for a better explanation of how CI4 works!
+# URL base da aplicação
+app.baseURL = 'http://localhost/ci-books/public'
+```
 
-## Repository Management
+### 4. Criar o Banco de Dados
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Crie um banco de dados MySQL chamado `books_management_ci4`.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Execute o script SQL localizado em `documentation/modelagem.sql` para criar as tabelas e inserir dados de exemplo:
 
-## Server Requirements
+```sql
+-- Execute o conteúdo do arquivo documentation/modelagem.sql no seu MySQL
+```
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+### 5. Executar Migrações (Opcional)
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Se preferir usar as migrações do CodeIgniter:
 
-> [!WARNING]
-> The end of life date for PHP 7.4 was November 28, 2022.
-> The end of life date for PHP 8.0 was November 26, 2023.
-> If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> The end of life date for PHP 8.1 will be November 25, 2024.
+```bash
+php spark migrate
+php spark db:seed CreateSampleData
+```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### 6. Configurar o Servidor Web
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+#### Opção 1: Usando Laragon (Recomendado)
+
+1. Certifique-se de que o Laragon está instalado e rodando
+2. Adicione o projeto à pasta `www` do Laragon
+3. Configure o virtual host para apontar para a pasta `public` do projeto
+
+#### Opção 2: Usando Apache/Nginx
+
+Configure seu servidor web para apontar o document root para a pasta `public` do projeto.
+
+Exemplo para Apache (.htaccess já incluído):
+
+```apache
+DocumentRoot "/caminho/para/ci-books/public"
+```
+
+#### Opção 3: Usando o servidor embutido do PHP
+
+```bash
+php spark serve
+```
+
+A aplicação estará disponível em `http://localhost:8080`
+
+### 7. Verificar a Instalação
+
+Acesse `http://localhost/ci-books/public` (ou a URL configurada) no seu navegador.
+
+Você deve ver a página inicial do sistema de cadastro de livros.
+
+## Estrutura do Projeto
+
+- `app/` - Código da aplicação
+- `public/` - Arquivos públicos (CSS, JS, imagens)
+- `documentation/` - Documentação e scripts SQL
+- `tests/` - Testes automatizados
+- `writable/` - Arquivos temporários e logs
+
+## Funcionalidades
+
+- Cadastro de livros
+- Cadastro de autores
+- Cadastro de assuntos
+- Relatórios
+
+## Desenvolvimento
+
+Para contribuir com o desenvolvimento:
+
+1. Faça um fork do repositório
+2. Crie uma branch para sua feature: `git checkout -b feature/nova-funcionalidade`
+3. Faça commit das suas alterações: `git commit -am 'Adiciona nova funcionalidade'`
+4. Faça push para a branch: `git push origin feature/nova-funcionalidade`
+5. Abra um Pull Request
+
+## Testes
+
+Execute os testes com:
+
+```bash
+composer test
+# ou
+php spark test
+```
+
+## Suporte
+
+Para suporte, abra uma issue no repositório ou consulte a documentação oficial do CodeIgniter 4.
