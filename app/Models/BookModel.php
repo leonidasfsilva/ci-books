@@ -17,11 +17,7 @@ class BookModel extends Model
     protected bool $allowEmptyInserts = false;
 
     // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $useTimestamps = false;
 
     // Validation
     protected $validationRules      = [

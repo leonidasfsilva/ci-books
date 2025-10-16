@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'https://ci-books.localhost/';
+    public string $baseURL = 'http://localhost/ci-books/public/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
@@ -29,7 +29,13 @@ class App extends BaseConfig
      *
      * @var list<string>
      */
-    public array $allowedHostnames = [];
+    public array $allowedHostnames = [
+        'https://ci-books.localhost',
+        'ci-books.localhost',
+        'www.ci-books.localhost',
+        'http://localhost/ci-books/public',
+        'https://localhost/ci-books/public'
+    ];
 
     /**
      * --------------------------------------------------------------------------

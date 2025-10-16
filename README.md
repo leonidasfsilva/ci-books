@@ -14,8 +14,7 @@ Este é um sistema de gerenciamento de livros desenvolvido com CodeIgniter 4, pe
 ### 1. Clonar o Repositório
 
 ```bash
-git clone git@github.com:leonidasfsilva/ci-books.git
-cd ci-books
+git clone git@github.com:leonidasfsilva/ci-books.git ci-books
 ```
 
 ### 2. Instalar Dependências
