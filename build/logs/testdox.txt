@@ -1,3 +1,10 @@
+Example Database
+ [x] Model find all
+ [x] Soft delete leaves row
+
+Example Session
+ [x] Session simple
+
 Author Controller (Tests\Unit\AuthorController)
  [x] Controller can be instantiated
  [x] Index method exists
@@ -40,6 +47,17 @@ Book Model (Tests\Unit\BookModel)
  [x] Model has correct date format
  [x] Get books with relations method exists
  [x] Get book with relations method exists
+
+Health
+ [x] Is defined app path
+ [x] Base url has been set
+
+Report Controller (Tests\Unit\ReportController)
+ [x] Controller can be instantiated
+ [x] Index method exists
+ [x] Get consolidated report method exists
+ [x] Controller has correct namespace
+ [x] Controller extends base controller
 
 Subject Controller (Tests\Unit\SubjectController)
  [x] Controller can be instantiated
