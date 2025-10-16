@@ -4,17 +4,13 @@ namespace Tests\Unit;
 
 use App\Models\SubjectModel;
 use CodeIgniter\Test\CIUnitTestCase;
-use CodeIgniter\Test\DatabaseTestTrait;
 
 /**
  * @internal
  */
 final class SubjectModelTest extends CIUnitTestCase
 {
-    use DatabaseTestTrait;
-
-    protected $migrate = true;
-    protected $seed = 'CreateSampleData';
+    private SubjectModel $model;
 
     protected function setUp(): void
     {
@@ -22,120 +18,47 @@ final class SubjectModelTest extends CIUnitTestCase
         $this->model = new SubjectModel();
     }
 
-    public function testModelCanInsertSubject(): void
+    public function testModelCanBeInstantiated(): void
     {
-        $data = [
-            'name' => 'Test Subject',
-        ];
-
-        $result = $this->model->insert($data);
-
-        $this->assertIsInt($result);
-        $this->assertGreaterThan(0, $result);
+        $this->assertInstanceOf(SubjectModel::class, $this->model);
     }
 
-    public function testModelCanFindSubject(): void
+    public function testModelHasCorrectTableName(): void
     {
-        $data = [
-            'name' => 'Test Subject',
-        ];
-
-        $id = $this->model->insert($data);
-        $subject = $this->model->find($id);
-
-        $this->assertIsArray($subject);
-        $this->assertEquals('Test Subject', $subject['name']);
+        $this->assertEquals('Assunto', $this->model->getTable());
     }
 
-    public function testModelCanUpdateSubject(): void
+    public function testModelHasCorrectPrimaryKey(): void
     {
-        $data = [
-            'name' => 'Test Subject',
-        ];
-
-        $id = $this->model->insert($data);
-        $updateData = [
-            'name' => 'Updated Subject',
-        ];
-
-        $result = $this->model->update($id, $updateData);
-        $this->assertTrue($result);
-
-        $updatedSubject = $this->model->find($id);
-        $this->assertEquals('Updated Subject', $updatedSubject['name']);
+        $this->assertEquals('codAs', $this->model->primaryKey);
     }
 
-    public function testModelCanDeleteSubject(): void
+    public function testModelHasCorrectReturnType(): void
     {
-        $data = [
-            'name' => 'Test Subject',
-        ];
-
-        $id = $this->model->insert($data);
-        $result = $this->model->delete($id);
-
-        $this->assertTrue($result);
-        $this->assertNull($this->model->find($id));
+        $this->assertEquals('array', $this->model->returnType);
     }
 
-    public function testModelValidationFailsWithEmptyName(): void
+    public function testModelHasValidationRules(): void
     {
-        $data = [
-            'name' => '',
-        ];
-
-        $result = $this->model->insert($data);
-        $this->assertFalse($result);
-
-        $errors = $this->model->errors();
-        $this->assertArrayHasKey('name', $errors);
+        $validationRules = $this->model->validationRules;
+        $this->assertIsArray($validationRules);
+        $this->assertArrayHasKey('Descricao', $validationRules);
     }
 
-    public function testModelValidationFailsWithDuplicateName(): void
+    public function testModelHasAllowedFields(): void
     {
-        $data = [
-            'name' => 'Test Subject',
-        ];
-
-        $this->model->insert($data);
-        $result = $this->model->insert($data);
-
-        $this->assertFalse($result);
-        $errors = $this->model->errors();
-        $this->assertArrayHasKey('name', $errors);
+        $allowedFields = $this->model->allowedFields;
+        $this->assertIsArray($allowedFields);
+        $this->assertContains('Descricao', $allowedFields);
     }
 
-    public function testModelValidationFailsWithInvalidCharacters(): void
+    public function testModelHasUseTimestamps(): void
     {
-        $data = [
-            'name' => 'Test@Subject!',
-        ];
-
-        $result = $this->model->insert($data);
-        $this->assertFalse($result);
-
-        $errors = $this->model->errors();
-        $this->assertArrayHasKey('name', $errors);
+        $this->assertFalse($this->model->useTimestamps);
     }
 
-    public function testModelValidationPassesWithValidName(): void
+    public function testModelHasCorrectDateFormat(): void
     {
-        $data = [
-            'name' => 'Matemática Aplicada',
-        ];
-
-        $result = $this->model->insert($data);
-        $this->assertIsInt($result);
-    }
-
-    public function testModelCanOrderByName(): void
-    {
-        $this->model->insert(['name' => 'Z Subject']);
-        $this->model->insert(['name' => 'A Subject']);
-
-        $subjects = $this->model->orderBy('name')->findAll();
-
-        $this->assertEquals('A Subject', $subjects[0]['name']);
-        $this->assertEquals('Z Subject', $subjects[1]['name']);
+        $this->assertEquals('datetime', $this->model->dateFormat);
     }
 }

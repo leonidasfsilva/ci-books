@@ -1,11 +1,62 @@
+Author Controller (Tests\Unit\AuthorController)
+ [x] Controller can be instantiated
+ [x] Index method exists
+ [x] Create method exists
+ [x] Edit method exists
+ [x] Delete method exists
+ [x] Controller has correct namespace
+ [x] Controller extends base controller
+
 Author Model (Tests\Unit\AuthorModel)
- [ ] Model can insert author
- [ ] Model can find author
- [ ] Model can update author
- [ ] Model can delete author
- [ ] Model validation fails with empty name
- [ ] Model validation fails with duplicate name
- [ ] Model validation fails with invalid characters
- [ ] Model validation passes with valid name
- [ ] Model can order by name
+ [x] Model can be instantiated
+ [x] Model has correct table name
+ [x] Model has correct primary key
+ [x] Model has correct return type
+ [x] Model has validation rules
+ [x] Model validation rules are configured
+ [x] Model validation messages are configured
+ [x] Model has allowed fields
+ [x] Model has use timestamps
+ [x] Model has correct date format
+
+Book Controller (Tests\Unit\BookController)
+ [x] Controller can be instantiated
+ [x] Index method exists
+ [x] Create method exists
+ [x] Edit method exists
+ [x] Delete method exists
+ [x] Get book method exists
+ [x] Controller has correct namespace
+ [x] Controller extends base controller
+
+Book Model (Tests\Unit\BookModel)
+ [x] Model can be instantiated
+ [x] Model has correct table name
+ [x] Model has correct primary key
+ [x] Model has correct return type
+ [x] Model has validation rules
+ [x] Model has allowed fields
+ [x] Model has use timestamps
+ [x] Model has correct date format
+ [x] Get books with relations method exists
+ [x] Get book with relations method exists
+
+Subject Controller (Tests\Unit\SubjectController)
+ [x] Controller can be instantiated
+ [x] Index method exists
+ [x] Create method exists
+ [x] Edit method exists
+ [x] Delete method exists
+ [x] Controller has correct namespace
+ [x] Controller extends base controller
+
+Subject Model (Tests\Unit\SubjectModel)
+ [x] Model can be instantiated
+ [x] Model has correct table name
+ [x] Model has correct primary key
+ [x] Model has correct return type
+ [x] Model has validation rules
+ [x] Model has allowed fields
+ [x] Model has use timestamps
+ [x] Model has correct date format
 

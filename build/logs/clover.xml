@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1760618897">
-  <project timestamp="1760618897">
+<coverage generated="1760621225">
+  <project timestamp="1760621225">
     <file name="C:\laragon\www\ci-books\app\Config\Boot\development.php">
       <line num="13" type="stmt" count="0"/>
       <line num="14" type="stmt" count="0"/>
@@ -45,10 +45,10 @@
       <class name="Config\Database" namespace="global">
         <metrics complexity="2" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
       </class>
-      <line num="78" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="5"/>
-      <line num="80" type="stmt" count="5"/>
-      <line num="85" type="stmt" count="5"/>
-      <line num="86" type="stmt" count="5"/>
+      <line num="78" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="50"/>
+      <line num="80" type="stmt" count="50"/>
+      <line num="85" type="stmt" count="50"/>
+      <line num="86" type="stmt" count="50"/>
       <metrics loc="90" ncloc="64" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
     </file>
     <file name="C:\laragon\www\ci-books\app\Config\DocTypes.php">
@@ -70,7 +70,7 @@
       <metrics loc="93" ncloc="25" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="C:\laragon\www\ci-books\app\Config\Events.php">
-      <line num="26" type="stmt" count="1"/>
+      <line num="26" type="stmt" count="0"/>
       <line num="27" type="stmt" count="0"/>
       <line num="28" type="stmt" count="0"/>
       <line num="29" type="stmt" count="0"/>
@@ -84,8 +84,8 @@
       <line num="50" type="stmt" count="0"/>
       <line num="51" type="stmt" count="0"/>
       <line num="52" type="stmt" count="0"/>
-      <line num="55" type="stmt" count="1"/>
-      <metrics loc="56" ncloc="33" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="2" elements="15" coveredelements="2"/>
+      <line num="55" type="stmt" count="0"/>
+      <metrics loc="56" ncloc="33" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="15" coveredelements="0"/>
     </file>
     <file name="C:\laragon\www\ci-books\app\Config\Exceptions.php">
       <class name="Config\Exceptions" namespace="global">
@@ -223,10 +223,10 @@
     </file>
     <file name="C:\laragon\www\ci-books\app\Controllers\AuthorController.php">
       <class name="App\Controllers\AuthorController" namespace="global">
-        <metrics complexity="14" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="53" coveredelements="0"/>
+        <metrics complexity="14" methods="5" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="1" elements="53" coveredelements="2"/>
       </class>
-      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="15" type="stmt" count="0"/>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
+      <line num="15" type="stmt" count="7"/>
       <line num="18" type="method" name="index" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="20" type="stmt" count="0"/>
       <line num="21" type="stmt" count="0"/>
@@ -278,25 +278,25 @@
       <line num="99" type="stmt" count="0"/>
       <line num="100" type="stmt" count="0"/>
       <line num="101" type="stmt" count="0"/>
-      <metrics loc="105" ncloc="105" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="53" coveredelements="0"/>
+      <metrics loc="105" ncloc="105" classes="1" methods="5" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="1" elements="53" coveredelements="2"/>
     </file>
     <file name="C:\laragon\www\ci-books\app\Controllers\BaseController.php">
       <class name="App\Controllers\BaseController" namespace="global">
-        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
       </class>
-      <line num="49" type="method" name="initController" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="52" type="stmt" count="0"/>
-      <metrics loc="59" ncloc="26" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+      <line num="49" type="method" name="initController" visibility="public" complexity="1" crap="1" count="22"/>
+      <line num="52" type="stmt" count="22"/>
+      <metrics loc="59" ncloc="26" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
     </file>
     <file name="C:\laragon\www\ci-books\app\Controllers\BookController.php">
       <class name="App\Controllers\BookController" namespace="global">
-        <metrics complexity="25" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="110" coveredstatements="0" elements="116" coveredelements="0"/>
+        <metrics complexity="25" methods="6" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="110" coveredstatements="4" elements="116" coveredelements="5"/>
       </class>
-      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="24" type="stmt" count="0"/>
+      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="21" type="stmt" count="8"/>
+      <line num="22" type="stmt" count="8"/>
+      <line num="23" type="stmt" count="8"/>
+      <line num="24" type="stmt" count="8"/>
       <line num="27" type="method" name="index" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="29" type="stmt" count="0"/>
       <line num="30" type="stmt" count="0"/>
@@ -408,7 +408,7 @@
       <line num="190" type="stmt" count="0"/>
       <line num="191" type="stmt" count="0"/>
       <line num="194" type="stmt" count="0"/>
-      <metrics loc="197" ncloc="193" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="110" coveredstatements="0" elements="116" coveredelements="0"/>
+      <metrics loc="197" ncloc="193" classes="1" methods="6" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="110" coveredstatements="4" elements="116" coveredelements="5"/>
     </file>
     <file name="C:\laragon\www\ci-books\app\Controllers\Home.php">
       <class name="App\Controllers\Home" namespace="global">
@@ -491,10 +491,10 @@
     </file>
     <file name="C:\laragon\www\ci-books\app\Controllers\SubjectController.php">
       <class name="App\Controllers\SubjectController" namespace="global">
-        <metrics complexity="14" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="53" coveredelements="0"/>
+        <metrics complexity="14" methods="5" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="1" elements="53" coveredelements="2"/>
       </class>
-      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="15" type="stmt" count="0"/>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
+      <line num="15" type="stmt" count="7"/>
       <line num="18" type="method" name="index" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="20" type="stmt" count="0"/>
       <line num="21" type="stmt" count="0"/>
@@ -546,7 +546,7 @@
       <line num="99" type="stmt" count="0"/>
       <line num="100" type="stmt" count="0"/>
       <line num="101" type="stmt" count="0"/>
-      <metrics loc="105" ncloc="105" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="53" coveredelements="0"/>
+      <metrics loc="105" ncloc="105" classes="1" methods="5" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="1" elements="53" coveredelements="2"/>
     </file>
     <file name="C:\laragon\www\ci-books\app\Database\Migrations\2025-10-16-002755_CreateBooksManagementTables.php">
       <class name="App\Database\Migrations\CreateBooksManagementTables" namespace="global">
@@ -885,6 +885,6 @@
       </class>
       <metrics loc="49" ncloc="46" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="43" loc="3854" ncloc="2430" classes="13" methods="32" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="609" coveredstatements="8" elements="641" coveredelements="9"/>
+    <metrics files="43" loc="3854" ncloc="2430" classes="13" methods="32" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="609" coveredstatements="13" elements="641" coveredelements="18"/>
   </project>
 </coverage>

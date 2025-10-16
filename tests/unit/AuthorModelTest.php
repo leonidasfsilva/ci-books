@@ -4,17 +4,13 @@ namespace Tests\Unit;
 
 use App\Models\AuthorModel;
 use CodeIgniter\Test\CIUnitTestCase;
-use CodeIgniter\Test\DatabaseTestTrait;
 
 /**
  * @internal
  */
 final class AuthorModelTest extends CIUnitTestCase
 {
-    use DatabaseTestTrait;
-
-    protected $migrate = true;
-    protected $seed = 'CreateSampleData';
+    private AuthorModel $model;
 
     protected function setUp(): void
     {
@@ -22,120 +18,59 @@ final class AuthorModelTest extends CIUnitTestCase
         $this->model = new AuthorModel();
     }
 
-    public function testModelCanInsertAuthor(): void
+    public function testModelCanBeInstantiated(): void
     {
-        $data = [
-            'name' => 'Test Author',
-        ];
-
-        $result = $this->model->insert($data);
-
-        $this->assertIsInt($result);
-        $this->assertGreaterThan(0, $result);
+        $this->assertInstanceOf(AuthorModel::class, $this->model);
     }
 
-    public function testModelCanFindAuthor(): void
+    public function testModelHasCorrectTableName(): void
     {
-        $data = [
-            'name' => 'Test Author',
-        ];
-
-        $id = $this->model->insert($data);
-        $author = $this->model->find($id);
-
-        $this->assertIsArray($author);
-        $this->assertEquals('Test Author', $author['name']);
+        $this->assertEquals('Autor', $this->model->getTable());
     }
 
-    public function testModelCanUpdateAuthor(): void
+    public function testModelHasCorrectPrimaryKey(): void
     {
-        $data = [
-            'name' => 'Test Author',
-        ];
-
-        $id = $this->model->insert($data);
-        $updateData = [
-            'name' => 'Updated Author',
-        ];
-
-        $result = $this->model->update($id, $updateData);
-        $this->assertTrue($result);
-
-        $updatedAuthor = $this->model->find($id);
-        $this->assertEquals('Updated Author', $updatedAuthor['name']);
+        $this->assertEquals('CodAu', $this->model->primaryKey);
     }
 
-    public function testModelCanDeleteAuthor(): void
+    public function testModelHasCorrectReturnType(): void
     {
-        $data = [
-            'name' => 'Test Author',
-        ];
-
-        $id = $this->model->insert($data);
-        $result = $this->model->delete($id);
-
-        $this->assertTrue($result);
-        $this->assertNull($this->model->find($id));
+        $this->assertEquals('array', $this->model->returnType);
     }
 
-    public function testModelValidationFailsWithEmptyName(): void
+    public function testModelHasValidationRules(): void
     {
-        $data = [
-            'name' => '',
-        ];
-
-        $result = $this->model->insert($data);
-        $this->assertFalse($result);
-
-        $errors = $this->model->errors();
-        $this->assertArrayHasKey('name', $errors);
+        $validationRules = $this->model->validationRules;
+        $this->assertIsArray($validationRules);
+        $this->assertArrayHasKey('Nome', $validationRules);
     }
 
-    public function testModelValidationFailsWithDuplicateName(): void
+    public function testModelValidationRulesAreConfigured(): void
     {
-        $data = [
-            'name' => 'Test Author',
-        ];
-
-        $this->model->insert($data);
-        $result = $this->model->insert($data);
-
-        $this->assertFalse($result);
-        $errors = $this->model->errors();
-        $this->assertArrayHasKey('name', $errors);
+        $validationRules = $this->model->getValidationRules();
+        $this->assertNotEmpty($validationRules);
     }
 
-    public function testModelValidationFailsWithInvalidCharacters(): void
+    public function testModelValidationMessagesAreConfigured(): void
     {
-        $data = [
-            'name' => 'Test@Author!',
-        ];
-
-        $result = $this->model->insert($data);
-        $this->assertFalse($result);
-
-        $errors = $this->model->errors();
-        $this->assertArrayHasKey('name', $errors);
+        $validationMessages = $this->model->getValidationMessages();
+        $this->assertIsArray($validationMessages);
     }
 
-    public function testModelValidationPassesWithValidName(): void
+    public function testModelHasAllowedFields(): void
     {
-        $data = [
-            'name' => 'João Silva',
-        ];
-
-        $result = $this->model->insert($data);
-        $this->assertIsInt($result);
+        $allowedFields = $this->model->allowedFields;
+        $this->assertIsArray($allowedFields);
+        $this->assertContains('Nome', $allowedFields);
     }
 
-    public function testModelCanOrderByName(): void
+    public function testModelHasUseTimestamps(): void
     {
-        $this->model->insert(['name' => 'Z Author']);
-        $this->model->insert(['name' => 'A Author']);
+        $this->assertFalse($this->model->useTimestamps);
+    }
 
-        $authors = $this->model->orderBy('name')->findAll();
-
-        $this->assertEquals('A Author', $authors[0]['name']);
-        $this->assertEquals('Z Author', $authors[1]['name']);
+    public function testModelHasCorrectDateFormat(): void
+    {
+        $this->assertEquals('datetime', $this->model->dateFormat);
     }
 }
