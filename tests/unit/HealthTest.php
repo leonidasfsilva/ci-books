@@ -20,31 +20,36 @@ final class HealthTest extends CIUnitTestCase
         $validation = Services::validation();
 
         $env = false;
+        $envBaseURL = '';
 
         // Check the baseURL in .env
         if (is_file(HOMEPATH . '.env')) {
-            $env = preg_grep('/^app\.baseURL = ./', file(HOMEPATH . '.env')) !== false;
+            $envFile = file(HOMEPATH . '.env');
+            foreach ($envFile as $line) {
+                if (preg_match('/^app\.baseURL = (.+)$/', trim($line), $matches)) {
+                    $env = true;
+                    $envBaseURL = trim($matches[1], '"\'');
+                    break;
+                }
+            }
         }
 
-        if ($env) {
+        if ($env && !empty($envBaseURL)) {
             // BaseURL in .env is a valid URL?
-            // phpunit.xml.dist sets app.baseURL in $_SERVER
-            // So if you set app.baseURL in .env, it takes precedence
-            $config = new App();
             $this->assertTrue(
-                $validation->check($config->baseURL, 'valid_url'),
-                'baseURL "' . $config->baseURL . '" in .env is not valid URL'
+                $validation->check($envBaseURL, 'valid_url'),
+                'baseURL "' . $envBaseURL . '" in .env is not valid URL'
+            );
+        } else {
+            // Get the baseURL in app/Config/App.php
+            // You can't use Config\App, because phpunit.xml.dist sets app.baseURL
+            $reader = new ConfigReader();
+
+            // BaseURL in app/Config/App.php is a valid URL?
+            $this->assertTrue(
+                $validation->check($reader->baseURL, 'valid_url'),
+                'baseURL "' . $reader->baseURL . '" in app/Config/App.php is not valid URL'
             );
         }
-
-        // Get the baseURL in app/Config/App.php
-        // You can't use Config\App, because phpunit.xml.dist sets app.baseURL
-        $reader = new ConfigReader();
-
-        // BaseURL in app/Config/App.php is a valid URL?
-        $this->assertTrue(
-            $validation->check($reader->baseURL, 'valid_url'),
-            'baseURL "' . $reader->baseURL . '" in app/Config/App.php is not valid URL'
-        );
     }
 }

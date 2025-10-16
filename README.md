@@ -131,6 +131,20 @@ composer test
 php spark test
 ```
 
+### Testes Unitários (Opcional)
+
+Para executar os testes unitários que usam SQLite, você precisa habilitar a extensão SQLite3 no PHP:
+
+1. **Windows (Laragon)**: No painel do Laragon, clique em PHP > Extensions > sqlite3
+2. **Linux**: Instale o pacote `php-sqlite3`
+3. **macOS**: Instale via Homebrew: `brew install php`
+
+Após habilitar o SQLite3, execute:
+
+```bash
+composer test -- --testsuite=unit
+```
+
 ## Suporte
 
 Para suporte, abra uma issue no repositório ou consulte a documentação oficial do CodeIgniter 4.

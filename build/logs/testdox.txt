@@ -1,79 +1,8 @@
-Author Controller (Tests\Unit\AuthorController)
- [ ] Index returns view with authors
- [ ] Create post valid data
- [ ] Create post invalid data
- [ ] Create post duplicate name
- [ ] Edit get valid id
- [ ] Edit get invalid id
- [ ] Edit post valid data
- [ ] Edit post invalid data
- [ ] Delete valid id
- [ ] Delete invalid id
-
 Author Model (Tests\Unit\AuthorModel)
  [ ] Model can insert author
  [ ] Model can find author
  [ ] Model can update author
  [ ] Model can delete author
- [ ] Model validation fails with empty name
- [ ] Model validation fails with duplicate name
- [ ] Model validation fails with invalid characters
- [ ] Model validation passes with valid name
- [ ] Model can order by name
-
-Book Controller (Tests\Unit\BookController)
- [ ] Index returns view with books
- [ ] Create post valid data
- [ ] Create post invalid data
- [ ] Create post without authors
- [ ] Edit get valid id
- [ ] Edit get invalid id
- [ ] Edit post valid data
- [ ] Edit post invalid data
- [ ] Delete valid id
- [ ] Delete invalid id
- [ ] Get book valid id
- [ ] Get book invalid id
-
-Book Model (Tests\Unit\BookModel)
- [ ] Model can insert book
- [ ] Model can find book
- [ ] Model can update book
- [ ] Model can delete book
- [ ] Model validation fails with empty title
- [ ] Model validation fails with invalid value
- [ ] Model validation fails with invalid publication date
- [ ] Model validation passes with valid data
- [ ] Get books with relations
- [ ] Get book with relations
- [ ] Get book with relations returns null for non existent book
-
-Health
- [x] Is defined app path
- [x] Base url has been set
-
-Report Controller (Tests\Unit\ReportController)
- [ ] Index returns view with report data
- [ ] Get consolidated report returns array
- [ ] Get consolidated report structure
-
-Subject Controller (Tests\Unit\SubjectController)
- [ ] Index returns view with subjects
- [ ] Create post valid data
- [ ] Create post invalid data
- [ ] Create post duplicate name
- [ ] Edit get valid id
- [ ] Edit get invalid id
- [ ] Edit post valid data
- [ ] Edit post invalid data
- [ ] Delete valid id
- [ ] Delete invalid id
-
-Subject Model (Tests\Unit\SubjectModel)
- [ ] Model can insert subject
- [ ] Model can find subject
- [ ] Model can update subject
- [ ] Model can delete subject
  [ ] Model validation fails with empty name
  [ ] Model validation fails with duplicate name
  [ ] Model validation fails with invalid characters
