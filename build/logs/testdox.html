@@ -51,85 +51,6 @@
         </style>
     </head>
     <body>
-        <h2>Example Database</h2>
-        <ul>
-            <li class="success">Model find all</li>
-            <li class="success">Soft delete leaves row</li>
-        </ul>
-        <h2>Example Session</h2>
-        <ul>
-            <li class="success">Session simple</li>
-        </ul>
-        <h2>Author Controller (Tests\Unit\AuthorController)</h2>
-        <ul>
-            <li class="success">Controller can be instantiated</li>
-            <li class="success">Index method exists</li>
-            <li class="success">Create method exists</li>
-            <li class="success">Edit method exists</li>
-            <li class="success">Delete method exists</li>
-            <li class="success">Controller has correct namespace</li>
-            <li class="success">Controller extends base controller</li>
-        </ul>
-        <h2>Author Model (Tests\Unit\AuthorModel)</h2>
-        <ul>
-            <li class="success">Model can be instantiated</li>
-            <li class="success">Model has correct table name</li>
-            <li class="success">Model has correct primary key</li>
-            <li class="success">Model has correct return type</li>
-            <li class="success">Model has validation rules</li>
-            <li class="success">Model validation rules are configured</li>
-            <li class="success">Model validation messages are configured</li>
-            <li class="success">Model has allowed fields</li>
-            <li class="success">Model has use timestamps</li>
-            <li class="success">Model has correct date format</li>
-        </ul>
-        <h2>Book Controller (Tests\Unit\BookController)</h2>
-        <ul>
-            <li class="success">Controller can be instantiated</li>
-            <li class="success">Index method exists</li>
-            <li class="success">Create method exists</li>
-            <li class="success">Edit method exists</li>
-            <li class="success">Delete method exists</li>
-            <li class="success">Get book method exists</li>
-            <li class="success">Controller has correct namespace</li>
-            <li class="success">Controller extends base controller</li>
-        </ul>
-        <h2>Book Model (Tests\Unit\BookModel)</h2>
-        <ul>
-            <li class="success">Model can be instantiated</li>
-            <li class="success">Model has correct table name</li>
-            <li class="success">Model has correct primary key</li>
-            <li class="success">Model has correct return type</li>
-            <li class="success">Model has validation rules</li>
-            <li class="success">Model has allowed fields</li>
-            <li class="success">Model has use timestamps</li>
-            <li class="success">Model has correct date format</li>
-            <li class="success">Get books with relations method exists</li>
-            <li class="success">Get book with relations method exists</li>
-        </ul>
-        <h2>Health</h2>
-        <ul>
-            <li class="success">Is defined app path</li>
-            <li class="success">Base url has been set</li>
-        </ul>
-        <h2>Report Controller (Tests\Unit\ReportController)</h2>
-        <ul>
-            <li class="success">Controller can be instantiated</li>
-            <li class="success">Index method exists</li>
-            <li class="success">Get consolidated report method exists</li>
-            <li class="success">Controller has correct namespace</li>
-            <li class="success">Controller extends base controller</li>
-        </ul>
-        <h2>Subject Controller (Tests\Unit\SubjectController)</h2>
-        <ul>
-            <li class="success">Controller can be instantiated</li>
-            <li class="success">Index method exists</li>
-            <li class="success">Create method exists</li>
-            <li class="success">Edit method exists</li>
-            <li class="success">Delete method exists</li>
-            <li class="success">Controller has correct namespace</li>
-            <li class="success">Controller extends base controller</li>
-        </ul>
         <h2>Subject Model (Tests\Unit\SubjectModel)</h2>
         <ul>
             <li class="success">Model can be instantiated</li>
@@ -139,7 +60,20 @@
             <li class="success">Model has validation rules</li>
             <li class="success">Model has allowed fields</li>
             <li class="success">Model has use timestamps</li>
-            <li class="success">Model has correct date format</li>
+            <li class="success">Insert valid subject</li>
+            <li class="success">Insert duplicate subject</li>
+            <li class="success">Insert invalid subject</li>
+            <li class="success">Find subject by id</li>
+            <li class="success">Find non existent subject</li>
+            <li class="success">Find all subjects</li>
+            <li class="success">Update subject</li>
+            <li class="success">Update with duplicate description</li>
+            <li class="success">Delete subject</li>
+            <li class="defect">Delete subject with books</li>
+            <li class="success">Delete non existent subject</li>
+            <li class="success">Validation with invalid characters</li>
+            <li class="success">Validation with too long description</li>
+            <li class="defect">Order by description</li>
         </ul>
     </body>
 </html>

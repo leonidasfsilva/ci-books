@@ -1,86 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="60" assertions="68" errors="0" warnings="0" failures="0" skipped="0" time="0.327859">
-    <testsuite name="App" tests="60" assertions="68" errors="0" warnings="0" failures="0" skipped="0" time="0.327859">
-      <testsuite name="ExampleDatabaseTest" file="C:\laragon\www\ci-books\tests\database\ExampleDatabaseTest.php" tests="2" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.059415">
-        <testcase name="testModelFindAll" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\laragon\www\ci-books\tests\database\ExampleDatabaseTest.php" line="17" assertions="1" time="0.048741"/>
-        <testcase name="testSoftDeleteLeavesRow" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\laragon\www\ci-books\tests\database\ExampleDatabaseTest.php" line="28" assertions="2" time="0.010674"/>
-      </testsuite>
-      <testsuite name="ExampleSessionTest" file="C:\laragon\www\ci-books\tests\session\ExampleSessionTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.003438">
-        <testcase name="testSessionSimple" class="ExampleSessionTest" classname="ExampleSessionTest" file="C:\laragon\www\ci-books\tests\session\ExampleSessionTest.php" line="11" assertions="1" time="0.003438"/>
-      </testsuite>
-      <testsuite name="Tests\Unit\AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" tests="7" assertions="7" errors="0" warnings="0" failures="0" skipped="0" time="0.037381">
-        <testcase name="testControllerCanBeInstantiated" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" line="26" assertions="1" time="0.007951"/>
-        <testcase name="testIndexMethodExists" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" line="31" assertions="1" time="0.005140"/>
-        <testcase name="testCreateMethodExists" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" line="36" assertions="1" time="0.005065"/>
-        <testcase name="testEditMethodExists" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" line="41" assertions="1" time="0.004758"/>
-        <testcase name="testDeleteMethodExists" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" line="46" assertions="1" time="0.004584"/>
-        <testcase name="testControllerHasCorrectNamespace" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" line="51" assertions="1" time="0.005008"/>
-        <testcase name="testControllerExtendsBaseController" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" line="56" assertions="1" time="0.004875"/>
-      </testsuite>
-      <testsuite name="Tests\Unit\AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" tests="10" assertions="12" errors="0" warnings="0" failures="0" skipped="0" time="0.046422">
-        <testcase name="testModelCanBeInstantiated" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="21" assertions="1" time="0.004508"/>
-        <testcase name="testModelHasCorrectTableName" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="26" assertions="1" time="0.004499"/>
-        <testcase name="testModelHasCorrectPrimaryKey" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="31" assertions="1" time="0.004431"/>
-        <testcase name="testModelHasCorrectReturnType" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="36" assertions="1" time="0.004410"/>
-        <testcase name="testModelHasValidationRules" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="41" assertions="2" time="0.004889"/>
-        <testcase name="testModelValidationRulesAreConfigured" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="48" assertions="1" time="0.005115"/>
-        <testcase name="testModelValidationMessagesAreConfigured" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="54" assertions="1" time="0.004426"/>
-        <testcase name="testModelHasAllowedFields" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="60" assertions="2" time="0.005109"/>
-        <testcase name="testModelHasUseTimestamps" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="67" assertions="1" time="0.004601"/>
-        <testcase name="testModelHasCorrectDateFormat" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books\tests\unit\AuthorModelTest.php" line="72" assertions="1" time="0.004435"/>
-      </testsuite>
-      <testsuite name="Tests\Unit\BookControllerTest" file="C:\laragon\www\ci-books\tests\unit\BookControllerTest.php" tests="8" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.039467">
-        <testcase name="testControllerCanBeInstantiated" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books\tests\unit\BookControllerTest.php" line="26" assertions="1" time="0.005450"/>
-        <testcase name="testIndexMethodExists" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books\tests\unit\BookControllerTest.php" line="31" assertions="1" time="0.004856"/>
-        <testcase name="testCreateMethodExists" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books\tests\unit\BookControllerTest.php" line="36" assertions="1" time="0.004718"/>
-        <testcase name="testEditMethodExists" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books\tests\unit\BookControllerTest.php" line="41" assertions="1" time="0.004717"/>
-        <testcase name="testDeleteMethodExists" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books\tests\unit\BookControllerTest.php" line="46" assertions="1" time="0.004911"/>
-        <testcase name="testGetBookMethodExists" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books\tests\unit\BookControllerTest.php" line="51" assertions="1" time="0.004776"/>
-        <testcase name="testControllerHasCorrectNamespace" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books\tests\unit\BookControllerTest.php" line="56" assertions="1" time="0.005288"/>
-        <testcase name="testControllerExtendsBaseController" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books\tests\unit\BookControllerTest.php" line="61" assertions="1" time="0.004752"/>
-      </testsuite>
-      <testsuite name="Tests\Unit\BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" tests="10" assertions="13" errors="0" warnings="0" failures="0" skipped="0" time="0.045012">
-        <testcase name="testModelCanBeInstantiated" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="21" assertions="1" time="0.004418"/>
-        <testcase name="testModelHasCorrectTableName" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="26" assertions="1" time="0.004486"/>
-        <testcase name="testModelHasCorrectPrimaryKey" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="31" assertions="1" time="0.004453"/>
-        <testcase name="testModelHasCorrectReturnType" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="36" assertions="1" time="0.004410"/>
-        <testcase name="testModelHasValidationRules" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="41" assertions="2" time="0.004851"/>
-        <testcase name="testModelHasAllowedFields" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="48" assertions="3" time="0.004464"/>
-        <testcase name="testModelHasUseTimestamps" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="56" assertions="1" time="0.004463"/>
-        <testcase name="testModelHasCorrectDateFormat" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="61" assertions="1" time="0.004518"/>
-        <testcase name="testGetBooksWithRelationsMethodExists" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="66" assertions="1" time="0.004487"/>
-        <testcase name="testGetBookWithRelationsMethodExists" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books\tests\unit\BookModelTest.php" line="71" assertions="1" time="0.004463"/>
-      </testsuite>
-      <testsuite name="HealthTest" file="C:\laragon\www\ci-books\tests\unit\HealthTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.007052">
-        <testcase name="testIsDefinedAppPath" class="HealthTest" classname="HealthTest" file="C:\laragon\www\ci-books\tests\unit\HealthTest.php" line="13" assertions="1" time="0.003165"/>
-        <testcase name="testBaseUrlHasBeenSet" class="HealthTest" classname="HealthTest" file="C:\laragon\www\ci-books\tests\unit\HealthTest.php" line="18" assertions="1" time="0.003887"/>
-      </testsuite>
-      <testsuite name="Tests\Unit\ReportControllerTest" file="C:\laragon\www\ci-books\tests\unit\ReportControllerTest.php" tests="5" assertions="5" errors="0" warnings="0" failures="0" skipped="0" time="0.021682">
-        <testcase name="testControllerCanBeInstantiated" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books\tests\unit\ReportControllerTest.php" line="26" assertions="1" time="0.004487"/>
-        <testcase name="testIndexMethodExists" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books\tests\unit\ReportControllerTest.php" line="31" assertions="1" time="0.004304"/>
-        <testcase name="testGetConsolidatedReportMethodExists" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books\tests\unit\ReportControllerTest.php" line="36" assertions="1" time="0.004413"/>
-        <testcase name="testControllerHasCorrectNamespace" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books\tests\unit\ReportControllerTest.php" line="41" assertions="1" time="0.004268"/>
-        <testcase name="testControllerExtendsBaseController" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books\tests\unit\ReportControllerTest.php" line="46" assertions="1" time="0.004210"/>
-      </testsuite>
-      <testsuite name="Tests\Unit\SubjectControllerTest" file="C:\laragon\www\ci-books\tests\unit\SubjectControllerTest.php" tests="7" assertions="7" errors="0" warnings="0" failures="0" skipped="0" time="0.032389">
-        <testcase name="testControllerCanBeInstantiated" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books\tests\unit\SubjectControllerTest.php" line="26" assertions="1" time="0.004838"/>
-        <testcase name="testIndexMethodExists" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books\tests\unit\SubjectControllerTest.php" line="31" assertions="1" time="0.004638"/>
-        <testcase name="testCreateMethodExists" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books\tests\unit\SubjectControllerTest.php" line="36" assertions="1" time="0.004546"/>
-        <testcase name="testEditMethodExists" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books\tests\unit\SubjectControllerTest.php" line="41" assertions="1" time="0.004492"/>
-        <testcase name="testDeleteMethodExists" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books\tests\unit\SubjectControllerTest.php" line="46" assertions="1" time="0.004806"/>
-        <testcase name="testControllerHasCorrectNamespace" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books\tests\unit\SubjectControllerTest.php" line="51" assertions="1" time="0.004572"/>
-        <testcase name="testControllerExtendsBaseController" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books\tests\unit\SubjectControllerTest.php" line="56" assertions="1" time="0.004497"/>
-      </testsuite>
-      <testsuite name="Tests\Unit\SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" tests="8" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="0.035601">
-        <testcase name="testModelCanBeInstantiated" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="21" assertions="1" time="0.004481"/>
-        <testcase name="testModelHasCorrectTableName" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="26" assertions="1" time="0.004468"/>
-        <testcase name="testModelHasCorrectPrimaryKey" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="31" assertions="1" time="0.004441"/>
-        <testcase name="testModelHasCorrectReturnType" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="36" assertions="1" time="0.004449"/>
-        <testcase name="testModelHasValidationRules" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="41" assertions="2" time="0.004444"/>
-        <testcase name="testModelHasAllowedFields" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="48" assertions="2" time="0.004417"/>
-        <testcase name="testModelHasUseTimestamps" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="55" assertions="1" time="0.004433"/>
-        <testcase name="testModelHasCorrectDateFormat" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="60" assertions="1" time="0.004468"/>
+  <testsuite name="" tests="21" assertions="26" errors="0" warnings="0" failures="0" skipped="2" time="0.272834">
+    <testsuite name="App" tests="21" assertions="26" errors="0" warnings="0" failures="0" skipped="2" time="0.272834">
+      <testsuite name="Tests\Unit\SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" tests="21" assertions="26" errors="0" warnings="0" failures="0" skipped="2" time="0.272834">
+        <testcase name="testModelCanBeInstantiated" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="68" assertions="1" time="0.049884"/>
+        <testcase name="testModelHasCorrectTableName" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="73" assertions="1" time="0.010373"/>
+        <testcase name="testModelHasCorrectPrimaryKey" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="78" assertions="1" time="0.009827"/>
+        <testcase name="testModelHasCorrectReturnType" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="83" assertions="1" time="0.010131"/>
+        <testcase name="testModelHasValidationRules" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="88" assertions="2" time="0.011018"/>
+        <testcase name="testModelHasAllowedFields" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="95" assertions="2" time="0.010506"/>
+        <testcase name="testModelHasUseTimestamps" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="102" assertions="1" time="0.012816"/>
+        <testcase name="testInsertValidSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="107" assertions="1" time="0.012036"/>
+        <testcase name="testInsertDuplicateSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="115" assertions="1" time="0.011789"/>
+        <testcase name="testInsertInvalidSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="126" assertions="1" time="0.011800"/>
+        <testcase name="testFindSubjectById" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="134" assertions="3" time="0.010880"/>
+        <testcase name="testFindNonExistentSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="145" assertions="1" time="0.011807"/>
+        <testcase name="testFindAllSubjects" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="152" assertions="2" time="0.011137"/>
+        <testcase name="testUpdateSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="165" assertions="2" time="0.011162"/>
+        <testcase name="testUpdateWithDuplicateDescription" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="177" assertions="1" time="0.012353"/>
+        <testcase name="testDeleteSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="189" assertions="2" time="0.010447"/>
+        <testcase name="testDeleteSubjectWithBooks" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="201" assertions="0" time="0.010792">
+          <skipped/>
+        </testcase>
+        <testcase name="testDeleteNonExistentSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="207" assertions="1" time="0.009756"/>
+        <testcase name="testValidationWithInvalidCharacters" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="214" assertions="1" time="0.012984"/>
+        <testcase name="testValidationWithTooLongDescription" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="222" assertions="1" time="0.010498"/>
+        <testcase name="testOrderByDescription" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books\tests\unit\SubjectModelTest.php" line="230" assertions="0" time="0.010837">
+          <skipped/>
+        </testcase>
       </testsuite>
     </testsuite>
   </testsuite>

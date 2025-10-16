@@ -1,73 +1,3 @@
-Example Database
- [x] Model find all
- [x] Soft delete leaves row
-
-Example Session
- [x] Session simple
-
-Author Controller (Tests\Unit\AuthorController)
- [x] Controller can be instantiated
- [x] Index method exists
- [x] Create method exists
- [x] Edit method exists
- [x] Delete method exists
- [x] Controller has correct namespace
- [x] Controller extends base controller
-
-Author Model (Tests\Unit\AuthorModel)
- [x] Model can be instantiated
- [x] Model has correct table name
- [x] Model has correct primary key
- [x] Model has correct return type
- [x] Model has validation rules
- [x] Model validation rules are configured
- [x] Model validation messages are configured
- [x] Model has allowed fields
- [x] Model has use timestamps
- [x] Model has correct date format
-
-Book Controller (Tests\Unit\BookController)
- [x] Controller can be instantiated
- [x] Index method exists
- [x] Create method exists
- [x] Edit method exists
- [x] Delete method exists
- [x] Get book method exists
- [x] Controller has correct namespace
- [x] Controller extends base controller
-
-Book Model (Tests\Unit\BookModel)
- [x] Model can be instantiated
- [x] Model has correct table name
- [x] Model has correct primary key
- [x] Model has correct return type
- [x] Model has validation rules
- [x] Model has allowed fields
- [x] Model has use timestamps
- [x] Model has correct date format
- [x] Get books with relations method exists
- [x] Get book with relations method exists
-
-Health
- [x] Is defined app path
- [x] Base url has been set
-
-Report Controller (Tests\Unit\ReportController)
- [x] Controller can be instantiated
- [x] Index method exists
- [x] Get consolidated report method exists
- [x] Controller has correct namespace
- [x] Controller extends base controller
-
-Subject Controller (Tests\Unit\SubjectController)
- [x] Controller can be instantiated
- [x] Index method exists
- [x] Create method exists
- [x] Edit method exists
- [x] Delete method exists
- [x] Controller has correct namespace
- [x] Controller extends base controller
-
 Subject Model (Tests\Unit\SubjectModel)
  [x] Model can be instantiated
  [x] Model has correct table name
@@ -76,5 +6,18 @@ Subject Model (Tests\Unit\SubjectModel)
  [x] Model has validation rules
  [x] Model has allowed fields
  [x] Model has use timestamps
- [x] Model has correct date format
+ [x] Insert valid subject
+ [x] Insert duplicate subject
+ [x] Insert invalid subject
+ [x] Find subject by id
+ [x] Find non existent subject
+ [x] Find all subjects
+ [x] Update subject
+ [x] Update with duplicate description
+ [x] Delete subject
+ [ ] Delete subject with books
+ [x] Delete non existent subject
+ [x] Validation with invalid characters
+ [x] Validation with too long description
+ [ ] Order by description
 

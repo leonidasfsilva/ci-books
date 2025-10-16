@@ -62,6 +62,11 @@ class BookModel extends Model
      */
     public function getBooksWithRelations()
     {
+        if ($this->db->DBDriver === 'SQLite3') {
+            // SQLite doesn't support GROUP_CONCAT, so return basic data
+            return $this->findAll();
+        }
+
         return $this->select('Livro.*, GROUP_CONCAT(DISTINCT a.Nome ORDER BY a.Nome SEPARATOR \', \') AS authors, GROUP_CONCAT(DISTINCT s.Descricao ORDER BY s.Descricao SEPARATOR \', \') AS subjects')
                     ->join('Livro_Autor ba', 'Livro.CodL = ba.Livro_CodL', 'left')
                     ->join('Autor a', 'ba.Autor_CodAu = a.CodAu', 'left')
