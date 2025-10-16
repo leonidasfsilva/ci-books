@@ -121,17 +121,7 @@ Para contribuir com o desenvolvimento:
 4. Faça push para a branch: `git push origin feature/nova-funcionalidade`
 5. Abra um Pull Request
 
-## Testes
-
-Execute os testes com:
-
-```bash
-composer test
-# ou
-php spark test
-```
-
-### Testes Unitários (Opcional)
+## Testes Unitários (Opcional)
 
 Para executar os testes unitários que usam SQLite, você precisa habilitar a extensão SQLite3 no PHP:
 
@@ -143,6 +133,13 @@ Após habilitar o SQLite3, execute:
 
 ```bash
 composer test -- --testsuite=unit
+```
+Execute os testes com:
+
+```bash
+composer test
+# ou
+php spark test
 ```
 
 ## Suporte
