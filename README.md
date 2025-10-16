@@ -14,7 +14,8 @@ Este é um sistema de gerenciamento de livros desenvolvido com CodeIgniter 4, pe
 ### 1. Clonar o Repositório
 
 ```bash
-git clone git@github.com:leonidasfsilva/ci-books.git ci-books
+git clone git@github.com:leonidasfsilva/ci-books.git
+cd ci-books
 ```
 
 ### 2. Instalar Dependências
@@ -49,20 +50,16 @@ app.baseURL = 'http://localhost/ci-books/public'
 
 Crie um banco de dados MySQL chamado `books_management_ci4`.
 
-Execute o script SQL localizado em `documentation/modelagem.sql` para criar as tabelas e inserir dados de exemplo:
+### 5. Executar Migrações (Recomendado)
 
-```sql
--- Execute o conteúdo do arquivo documentation/modelagem.sql no seu MySQL
-```
-
-### 5. Executar Migrações (Opcional)
-
-Se preferir usar as migrações do CodeIgniter:
+Execute as migrações e seeds do CodeIgniter para configurar o banco de dados:
 
 ```bash
 php spark migrate
 php spark db:seed CreateSampleData
 ```
+
+**Alternativa**: Você pode executar o script SQL localizado em `documentation/modelagem.sql` diretamente no MySQL para criar as tabelas e inserir dados de exemplo, mas o método recomendado é usar as migrações do CodeIgniter.
 
 ### 6. Configurar o Servidor Web
 
@@ -121,26 +118,15 @@ Para contribuir com o desenvolvimento:
 4. Faça push para a branch: `git push origin feature/nova-funcionalidade`
 5. Abra um Pull Request
 
-## Testes Unitários (Opcional)
+## Testes
 
-Para executar os testes unitários que usam SQLite, você precisa habilitar a extensão SQLite3 no PHP:
-
-1. **Windows (Laragon)**: No painel do Laragon, clique em PHP > Extensions > sqlite3
-2. **Linux**: Instale o pacote `php-sqlite3`
-3. **macOS**: Instale via Homebrew: `brew install php`
-
-Após habilitar o SQLite3, execute:
-
-```bash
-composer test -- --testsuite=unit
-```
-Execute os testes com:
+O projeto inclui uma suíte completa de testes unitários e de integração. Para executar os testes:
 
 ```bash
 composer test
-# ou
-php spark test
 ```
+
+**Nota**: Os testes usam SQLite em memória para isolamento e velocidade. Alguns testes podem ser pulados se houver limitações específicas do ambiente de teste, mas todos os testes críticos passam com sucesso.
 
 ## Suporte
 
