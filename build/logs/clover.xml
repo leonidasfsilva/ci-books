@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1760630315">
-  <project timestamp="1760630315">
+<coverage generated="1760630465">
+  <project timestamp="1760630465">
     <file name="C:\laragon\www\ci-books\app\Config\Boot\development.php">
       <line num="13" type="stmt" count="0"/>
       <line num="14" type="stmt" count="0"/>
