@@ -272,7 +272,7 @@
                 </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
-            <form action="<?= base_url('books/create') ?>" method="post" class="needs-validation" novalidate>
+            <form action="<?= base_url('books/create') ?>" method="post" class="needs-validation" novalidate onsubmit="prepareFormData(this)">
                 <div class="modal-body p-2 p-sm-3 p-md-4" style="max-height: 70vh; overflow-y: auto; overflow-x: hidden;">
                     <div class="mb-3 mb-md-4">
                         <label for="titulo" class="form-label fw-semibold required-field">
@@ -280,56 +280,41 @@
                         </label>
                         <input type="text" class="form-control form-control-lg" id="titulo" name="titulo" required
                                placeholder="Digite o título do livro" maxlength="40">
-                        <div class="invalid-feedback">
-                            Por favor, insira o título do livro (máx. 40 caracteres).
-                        </div>
                     </div>
 
                     <div class="row mb-3 mb-md-4">
                         <div class="col-12 col-md-6 mb-3 mb-md-0">
-                            <label for="editora" class="form-label fw-semibold">
+                            <label for="editora" class="form-label fw-semibold required-field">
                                 <i class="fas fa-building me-1"></i>Editora
                             </label>
-                            <input type="text" class="form-control" id="editora" name="editora"
+                            <input type="text" class="form-control" id="editora" name="editora" required
                                    placeholder="Digite o nome da editora" maxlength="40">
-                            <div class="invalid-feedback">
-                                Editora deve ter no máximo 40 caracteres.
-                            </div>
                         </div>
 
                         <div class="col-12 col-md-6">
                             <label for="valor" class="form-label fw-semibold required-field">
                                 <i class="fas fa-dollar-sign me-1"></i>Valor (R$)
                             </label>
-                            <input type="number" class="form-control" id="valor" name="valor"
-                                   step="0.01" min="0" required placeholder="0,00">
-                            <div class="invalid-feedback">
-                                Por favor, insira um valor válido maior que zero.
-                            </div>
+                            <input type="text" class="form-control" id="valor" name="valor"
+                                   required placeholder="0,00">
                         </div>
                     </div>
 
                     <div class="row mb-3 mb-md-4">
                         <div class="col-6 col-md-6 mb-3 mb-md-0">
-                            <label for="edicao" class="form-label fw-semibold">
+                            <label for="edicao" class="form-label fw-semibold required-field">
                                 <i class="fas fa-hashtag me-1"></i>Edição
                             </label>
                             <input type="number" class="form-control" id="edicao" name="edicao"
                                    placeholder="1" min="1">
-                            <div class="invalid-feedback">
-                                Edição deve ser um número maior que zero.
-                            </div>
                         </div>
 
                         <div class="col-6 col-md-6">
-                            <label for="ano_publicacao" class="form-label fw-semibold">
+                            <label for="ano_publicacao" class="form-label fw-semibold required-field">
                                 <i class="fas fa-calendar-alt me-1"></i>Ano de Publicação
                             </label>
                             <input type="text" class="form-control" id="ano_publicacao" name="ano_publicacao"
-                                   placeholder="2024" maxlength="4" pattern="\d{4}">
-                            <div class="invalid-feedback">
-                                Ano deve ter exatamente 4 dígitos.
-                            </div>
+                                   placeholder="2024" maxlength="4">
                         </div>
                     </div>
 
@@ -356,13 +341,10 @@
                         <div class="mt-1 mt-md-2">
                             <small class="text-muted">Clique nos badges para selecionar autores</small>
                         </div>
-                        <div class="invalid-feedback">
-                            Por favor, selecione pelo menos um autor.
-                        </div>
                     </div>
 
                     <div class="mb-3 mb-md-4">
-                        <label class="form-label fw-semibold">
+                        <label class="form-label fw-semibold required-field">
                             <i class="fas fa-tags me-1"></i>Assuntos
                         </label>
                         <div class="d-flex flex-wrap gap-1 gap-md-2" id="addSubjectsContainer" style="max-height: 120px; overflow-y: auto;">
@@ -409,7 +391,7 @@
                 </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
-            <form action="" method="post" id="editForm" class="needs-validation" novalidate>
+            <form action="" method="post" id="editForm" class="needs-validation" novalidate onsubmit="prepareFormData(this)">
                 <div class="modal-body p-2 p-sm-3 p-md-4" style="max-height: 70vh; overflow-y: auto; overflow-x: hidden;">
                     <input type="hidden" id="editId" name="id">
 
@@ -418,54 +400,39 @@
                             <i class="fas fa-heading me-1"></i>Título do Livro
                         </label>
                         <input type="text" class="form-control form-control-lg" id="editTitulo" name="titulo" required maxlength="40">
-                        <div class="invalid-feedback">
-                            Por favor, insira o título do livro (máx. 40 caracteres).
-                        </div>
                     </div>
 
                     <div class="row mb-3 mb-md-4">
                         <div class="col-12 col-md-6 mb-3 mb-md-0">
-                            <label for="editEditora" class="form-label fw-semibold">
+                            <label for="editEditora" class="form-label fw-semibold required-field">
                                 <i class="fas fa-building me-1"></i>Editora
                             </label>
-                            <input type="text" class="form-control" id="editEditora" name="editora" maxlength="40">
-                            <div class="invalid-feedback">
-                                Editora deve ter no máximo 40 caracteres.
-                            </div>
+                            <input type="text" class="form-control" id="editEditora" name="editora" required maxlength="40">
                         </div>
 
                         <div class="col-12 col-md-6">
                             <label for="editValor" class="form-label fw-semibold required-field">
                                 <i class="fas fa-dollar-sign me-1"></i>Valor (R$)
                             </label>
-                            <input type="number" class="form-control" id="editValor" name="valor"
-                                   step="0.01" min="0" required>
-                            <div class="invalid-feedback">
-                                Por favor, insira um valor válido maior que zero.
-                            </div>
+                            <input type="text" class="form-control" id="editValor" name="valor"
+                                   required>
                         </div>
                     </div>
 
                     <div class="row mb-3 mb-md-4">
                         <div class="col-6 col-md-6 mb-3 mb-md-0">
-                            <label for="editEdicao" class="form-label fw-semibold">
+                            <label for="editEdicao" class="form-label fw-semibold required-field">
                                 <i class="fas fa-hashtag me-1"></i>Edição
                             </label>
                             <input type="number" class="form-control" id="editEdicao" name="edicao" min="1">
-                            <div class="invalid-feedback">
-                                Edição deve ser um número maior que zero.
-                            </div>
                         </div>
 
                         <div class="col-6 col-md-6">
-                            <label for="editAnoPublicacao" class="form-label fw-semibold">
+                            <label for="editAnoPublicacao" class="form-label fw-semibold required-field">
                                 <i class="fas fa-calendar-alt me-1"></i>Ano de Publicação
                             </label>
                             <input type="text" class="form-control" id="editAnoPublicacao" name="ano_publicacao"
-                                   maxlength="4" pattern="\d{4}">
-                            <div class="invalid-feedback">
-                                Ano deve ter exatamente 4 dígitos.
-                            </div>
+                                   maxlength="4">
                         </div>
                     </div>
 
@@ -488,13 +455,10 @@
                         <div class="mt-1 mt-md-2">
                             <small class="text-muted">Clique nos badges para selecionar autores</small>
                         </div>
-                        <div class="invalid-feedback">
-                            Por favor, selecione pelo menos um autor.
-                        </div>
                     </div>
 
                     <div class="mb-3 mb-md-4">
-                        <label class="form-label fw-semibold">
+                        <label class="form-label fw-semibold required-field">
                             <i class="fas fa-tags me-1"></i>Assuntos
                         </label>
                         <div class="d-flex flex-wrap gap-1 gap-md-2" id="editSubjectsContainer" style="max-height: 120px; overflow-y: auto;">
@@ -530,20 +494,192 @@
 
 <?= $this->section('scripts') ?>
 <script>
-// Form validation
-(function () {
-    'use strict'
-    var forms = document.querySelectorAll('.needs-validation')
-    Array.prototype.slice.call(forms).forEach(function(form) {
-        form.addEventListener('submit', function(event) {
-            if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
+// Form validation with jQuery Validation
+function initializeFormValidation() {
+    // Add custom validation methods
+    $.validator.addMethod("tituloPattern", function(value, element) {
+        return this.optional(element) || /^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/.test(value);
+    }, "Título deve conter apenas letras, números, espaços, hífen, ponto, apóstrofo e &.");
+
+    $.validator.addMethod("editoraPattern", function(value, element) {
+        return this.optional(element) || /^[a-zA-ZÀ-ÿ0-9\s\-.\'&]*$/.test(value);
+    }, "Editora deve conter apenas letras, números, espaços, hífen, ponto, apóstrofo e &.");
+
+    $.validator.addMethod("anoPattern", function(value, element) {
+        return this.optional(element) || /^\d{4}$/.test(value);
+    }, "Ano deve ter exatamente 4 dígitos.");
+
+    $.validator.addMethod("atLeastOneAuthor", function(value, element) {
+        // Check if at least one author checkbox is checked
+        const form = element.closest('form');
+        const authorCheckboxes = form.querySelectorAll('input[name="authors[]"]:checked');
+        return authorCheckboxes.length > 0;
+    }, "Este campo é obrigatório.");
+
+    $.validator.addMethod("atLeastOneSubject", function(value, element) {
+        // Check if at least one subject checkbox is checked
+        const form = element.closest('form');
+        const subjectCheckboxes = form.querySelectorAll('input[name="subjects[]"]:checked');
+        return subjectCheckboxes.length > 0;
+    }, "Este campo é obrigatório.");
+
+    // Initialize validation for add book form
+    $("#addBookModal form").validate({
+        rules: {
+            titulo: {
+                required: true,
+                maxlength: 40,
+                tituloPattern: true
+            },
+            editora: {
+                required: true,
+                maxlength: 40,
+                editoraPattern: true
+            },
+            edicao: {
+                required: true,
+                number: true,
+                min: 1
+            },
+            ano_publicacao: {
+                required: true,
+                anoPattern: true
+            },
+            messages: {
+                ano_publicacao: {
+                    required: "Este campo é obrigatório."
+                }
+            },
+            valor: {
+                required: true,
+                number: true,
+                min: 0.01
+            },
+            "authors[]": {
+                atLeastOneAuthor: true
+            },
+            "subjects[]": {
+                atLeastOneSubject: true
             }
-            form.classList.add('was-validated')
-        }, false)
-    })
-})()
+        },
+        messages: {
+            titulo: {
+                required: "Este campo é obrigatório.",
+                maxlength: "Título deve ter no máximo 40 caracteres."
+            },
+            editora: {
+                required: "Este campo é obrigatório.",
+                maxlength: "Editora deve ter no máximo 40 caracteres."
+            },
+            edicao: {
+                required: "Este campo é obrigatório.",
+                number: "Edição deve ser um número.",
+                min: "Edição deve ser maior que zero."
+            },
+            valor: {
+                required: "Este campo é obrigatório.",
+                number: "Valor deve ser um número.",
+                min: "Valor deve ser maior que zero."
+            }
+        },
+        errorElement: "div",
+        errorPlacement: function(error, element) {
+            // Create error div if it doesn't exist
+            let errorDiv = element.parent().find('.invalid-feedback');
+            if (errorDiv.length === 0) {
+                errorDiv = $('<div class="invalid-feedback"></div>');
+                element.after(errorDiv);
+            }
+            errorDiv.html(error.text()).show();
+            element.addClass('is-invalid');
+        },
+        success: function(label, element) {
+            $(element).removeClass('is-invalid');
+            $(element).parent().find('.invalid-feedback').hide();
+        },
+        submitHandler: function(form) {
+            // Prepare form data before submission
+            prepareFormData(form);
+            form.submit();
+        }
+    });
+
+    // Initialize validation for edit book form
+    $("#editForm").validate({
+        rules: {
+            titulo: {
+                required: true,
+                maxlength: 40,
+                tituloPattern: true
+            },
+            editora: {
+                required: true,
+                maxlength: 40,
+                editoraPattern: true
+            },
+            edicao: {
+                required: true,
+                number: true,
+                min: 1
+            },
+            ano_publicacao: {
+                required: true,
+                anoPattern: true
+            },
+            valor: {
+                required: true,
+                number: true,
+                min: 0.01
+            },
+            "authors[]": {
+                atLeastOneAuthor: true
+            },
+            "subjects[]": {
+                atLeastOneSubject: true
+            }
+        },
+        messages: {
+            titulo: {
+                required: "Este campo é obrigatório.",
+                maxlength: "Título deve ter no máximo 40 caracteres."
+            },
+            editora: {
+                required: "Este campo é obrigatório.",
+                maxlength: "Editora deve ter no máximo 40 caracteres."
+            },
+            edicao: {
+                required: "Este campo é obrigatório.",
+                number: "Edição deve ser um número.",
+                min: "Edição deve ser maior que zero."
+            },
+            valor: {
+                required: "Este campo é obrigatório.",
+                number: "Valor deve ser um número.",
+                min: "Valor deve ser maior que zero."
+            }
+        },
+        errorElement: "div",
+        errorPlacement: function(error, element) {
+            // Create error div if it doesn't exist
+            let errorDiv = element.parent().find('.invalid-feedback');
+            if (errorDiv.length === 0) {
+                errorDiv = $('<div class="invalid-feedback"></div>');
+                element.after(errorDiv);
+            }
+            errorDiv.html(error.text()).show();
+            element.addClass('is-invalid');
+        },
+        success: function(label, element) {
+            $(element).removeClass('is-invalid');
+            $(element).parent().find('.invalid-feedback').hide();
+        },
+        submitHandler: function(form) {
+            // Prepare form data before submission
+            prepareFormData(form);
+            form.submit();
+        }
+    });
+}
 
 // Reset form when add book modal is closed
 document.getElementById('addBookModal').addEventListener('hidden.bs.modal', function () {
@@ -556,7 +692,80 @@ document.getElementById('addBookModal').addEventListener('hidden.bs.modal', func
     });
 });
 
-// Remove currency input formatting as it's no longer needed
+// Initialize jQuery MaskMoney for currency formatting
+function initializeCurrencyFormatting() {
+    // Apply maskMoney to all currency inputs
+    $('input[name="valor"]').maskMoney({
+        prefix: 'R$ ',
+        allowNegative: false,
+        thousands: '.',
+        decimal: ',',
+        affixesStay: true
+    });
+}
+
+// Allow free typing during input (global function)
+function allowCurrencyInput(input) {
+    // Just remove invalid characters but keep the value as-is for editing
+    let value = input.value;
+
+    // Remove any character that's not digit, comma, or period
+    value = value.replace(/[^\d.,]/g, '');
+
+    // Ensure only one decimal separator (prefer comma for Brazilian style)
+    const commaCount = (value.match(/,/g) || []).length;
+    const periodCount = (value.match(/\./g) || []).length;
+
+    if (commaCount > 1 || (commaCount > 0 && periodCount > 0)) {
+        // Remove extra separators, keeping only the last one
+        const parts = value.split(/[,|\.]/);
+        const lastSeparator = value.lastIndexOf(',') > value.lastIndexOf('.') ? ',' : '.';
+        value = parts.slice(0, -1).join('') + lastSeparator + parts[parts.length - 1];
+    }
+
+    input.value = value;
+}
+
+// Format currency (global function)
+function formatCurrency(input) {
+    let value = input.value.replace(/[^\d.,]/g, '');
+
+    if (value) {
+        // Replace comma with period for parsing
+        value = value.replace(',', '.');
+
+        // Ensure only one decimal point
+        const parts = value.split('.');
+        if (parts.length > 2) {
+            value = parts[0] + '.' + parts.slice(1).join('');
+        }
+
+        // Limit to 2 decimal places
+        if (parts.length === 2 && parts[1].length > 2) {
+            value = parts[0] + '.' + parts[1].substring(0, 2);
+        }
+
+        const numericValue = parseFloat(value);
+        if (!isNaN(numericValue)) {
+            input.value = 'R$ ' + numericValue.toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+    } else {
+        input.value = '';
+    }
+}
+
+// Extract numeric value for form submission
+function getNumericValue(formattedValue) {
+    if (!formattedValue) return '';
+
+    // Remove 'R$ ' prefix and formatting
+    let numeric = formattedValue.replace('R$ ', '').replace(/\./g, '').replace(',', '.');
+
+    return parseFloat(numeric) || '';
+}
 
 // Edit book function
 function editBook(id) {
@@ -582,7 +791,7 @@ function editBook(id) {
             document.getElementById('editEditora').value = data.Editora || '';
             document.getElementById('editEdicao').value = data.Edicao || '';
             document.getElementById('editAnoPublicacao').value = data.AnoPublicacao || '';
-            document.getElementById('editValor').value = data.Valor || '';
+            document.getElementById('editValor').value = data.Valor ? parseFloat(data.Valor).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '';
 
             // Clear all checkboxes
             document.querySelectorAll('.edit-authors').forEach(cb => cb.checked = false);
@@ -675,8 +884,22 @@ function confirmDeleteBook(bookId, bookTitle) {
     });
 }
 
-// Auto-hide alerts after 5 seconds
+// Prepare form data before submission
+function prepareFormData(form) {
+    const valorInput = form.querySelector('input[name="valor"]');
+    if (valorInput && valorInput.value) {
+        // Convert formatted currency back to numeric value
+        const numericValue = getNumericValue(valorInput.value);
+        valorInput.value = numericValue;
+    }
+}
+
+// Initialize when page loads
 document.addEventListener('DOMContentLoaded', function() {
+    initializeCurrencyFormatting();
+    initializeFormValidation();
+
+    // Auto-hide alerts after 5 seconds
     setTimeout(function() {
         const alerts = document.querySelectorAll('.alert');
         alerts.forEach(function(alert) {
