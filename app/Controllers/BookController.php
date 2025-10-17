@@ -198,6 +198,25 @@ class BookController extends BaseController
     public function errorMsg()
     {
         // Método de teste para validação de mensagens de erro
+        // Suporta tanto GET (para visualização) quanto POST (para validação)
+
+        if ($this->request->getMethod() === 'GET') {
+            // Retorna informações sobre o endpoint
+            return $this->response->setJSON([
+                'endpoint' => 'errorMsg',
+                'description' => 'Endpoint de teste para validação de mensagens de erro',
+                'methods' => ['GET', 'POST'],
+                'usage' => [
+                    'GET' => 'Retorna informações sobre o endpoint',
+                    'POST' => 'Envia dados para validação e retorna erros se houver'
+                ],
+                'required_fields' => [
+                    'titulo', 'editora', 'edicao', 'ano_publicacao', 'valor', 'authors', 'subjects'
+                ]
+            ]);
+        }
+
+        // Método POST - valida os dados
         $rules = [
             'titulo' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
             'editora' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
