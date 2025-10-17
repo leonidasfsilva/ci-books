@@ -201,19 +201,27 @@ class BookController extends BaseController
         // Suporta tanto GET (para visualização) quanto POST (para validação)
 
         if ($this->request->getMethod() === 'GET') {
-            // Retorna informações sobre o endpoint
-            return $this->response->setJSON([
-                'endpoint' => 'errorMsg',
-                'description' => 'Endpoint de teste para validação de mensagens de erro',
-                'methods' => ['GET', 'POST'],
-                'usage' => [
-                    'GET' => 'Retorna informações sobre o endpoint',
-                    'POST' => 'Envia dados para validação e retorna erros se houver'
-                ],
-                'required_fields' => [
-                    'titulo', 'editora', 'edicao', 'ano_publicacao', 'valor', 'authors', 'subjects'
+            // Retorna a view da listagem de livros para teste
+            $data = [
+                'title' => 'Teste de Validação - Gerenciar Livros',
+                'books' => $this->bookModel->getBooksWithRelations(),
+                'authors' => $this->authorModel->orderBy('Nome')->findAll(),
+                'subjects' => $this->subjectModel->orderBy('Descricao')->findAll(),
+                'endpoint_info' => [
+                    'endpoint' => 'errorMsg',
+                    'description' => 'Endpoint de teste para validação de mensagens de erro',
+                    'methods' => ['GET', 'POST'],
+                    'usage' => [
+                        'GET' => 'Retorna a view da listagem de livros para teste',
+                        'POST' => 'Envia dados para validação e retorna erros se houver'
+                    ],
+                    'required_fields' => [
+                        'titulo', 'editora', 'edicao', 'ano_publicacao', 'valor', 'authors', 'subjects'
+                    ]
                 ]
-            ]);
+            ];
+
+            return view('books/index', $data);
         }
 
         // Método POST - valida os dados
