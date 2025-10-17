@@ -80,13 +80,26 @@ app.baseURL = 'http://localhost/ci-books/public'
 
 ### 4. Criar Diretórios Necessários
 
-Execute o comando para criar os diretórios obrigatórios do CodeIgniter:
+Execute o script de configuração específico do seu sistema operacional para criar os diretórios obrigatórios do CodeIgniter e ajustar permissões:
 
-```bash
-php spark make:writable
+#### Windows
+
+```cmd
+# Command Prompt
+setup.bat
 ```
 
-Este comando cria automaticamente os diretórios necessários em `writable/` (cache, logs, sessions, uploads, debugbar).
+#### Linux/macOS
+
+```bash
+# Tornar o script executável (primeira vez apenas)
+chmod +x setup.sh
+
+# Executar o script
+./setup.sh
+```
+
+Estes scripts criam automaticamente os diretórios necessários em `writable/` (cache, logs, sessions, uploads, debugbar) e ajustam as permissões apropriadas para o sistema operacional.
 
 ### 5. Criar o Banco de Dados
 
