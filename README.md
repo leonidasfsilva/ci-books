@@ -44,7 +44,14 @@ npm install
 Copie o arquivo `env` para `.env`:
 
 ```bash
+# Linux/Mac
 cp env .env
+
+# Windows (Command Prompt)
+copy env .env
+
+# Windows (PowerShell)
+xcopy env .env
 ```
 
 Edite o arquivo `.env` e configure as seguintes variáveis:
