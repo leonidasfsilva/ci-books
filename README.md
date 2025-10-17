@@ -10,6 +10,16 @@ Este é um sistema de gerenciamento de livros desenvolvido com CodeIgniter 4, pe
 - MySQL/MariaDB
 - Servidor web (Apache/Nginx) ou ambiente local como Laragon/XAMPP
 
+### Ambiente de Desenvolvimento Recomendado
+
+Se você não possui nenhuma stack de desenvolvimento web/PHP instalada na máquina, **recomendamos fortemente o uso do Laragon**:
+
+- **Laragon**: Ambiente completo e fácil de instalar para desenvolvimento PHP
+- **Download**: [https://laragon.org/download/](https://laragon.org/download/)
+- **Por que Laragon?**: Interface intuitiva, configuração automática de Apache/Nginx, MySQL/MariaDB, PHP e muito mais
+
+Alternativas: XAMPP, WAMP, MAMP ou Docker.
+
 ## Instalação e Configuração
 
 ### 1. Clonar o Repositório
