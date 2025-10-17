@@ -61,7 +61,7 @@
             <?php endif; ?>
 
             <?php if (session()->has('error')): ?>
-                <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 rounded-3">
+                <div id="error-message" class="alert alert-danger alert-dismissible fade show shadow-sm border-0 rounded-3">
                     <i class="fas fa-exclamation-triangle me-2"></i>
                     <?= session('error') ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -133,6 +133,28 @@
                 icon: 'error',
                 showConfirmButton: false,
                 showCloseButton: true,
+                customClass: {
+                    popup: 'swal-wide'
+                }
+            });
+        }
+
+        // Verificar se há mensagens de erro para exibir no SweetAlert2
+        const errorMessage = document.getElementById('error-message');
+        if (errorMessage) {
+            const errorText = errorMessage.textContent.trim();
+
+            // Esconder o alert padrão
+            errorMessage.style.display = 'none';
+
+            // Exibir SweetAlert2 com erro
+            Swal.fire({
+                title: 'Erro!',
+                text: errorText,
+                icon: 'error',
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 5000,
                 customClass: {
                     popup: 'swal-wide'
                 }

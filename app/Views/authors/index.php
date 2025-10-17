@@ -148,7 +148,7 @@
                         </label>
                         <input type="text" class="form-control form-control-lg" id="Nome" name="Nome" required
                                placeholder="Digite o nome do autor" maxlength="40">
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback d-none">
                             Por favor, insira o nome do autor (máx. 40 caracteres).
                         </div>
                     </div>
@@ -184,7 +184,7 @@
                             <i class="fas fa-user me-1"></i>Nome do Autor
                         </label>
                         <input type="text" class="form-control form-control-lg" id="editNome" name="Nome" required maxlength="40">
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback d-none">
                             Por favor, insira o nome do autor (máx. 40 caracteres).
                         </div>
                     </div>

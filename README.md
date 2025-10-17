@@ -4,7 +4,15 @@ Este é um sistema de gerenciamento de livros desenvolvido com CodeIgniter 4, pe
 
 ## Pré-requisitos
 
-- PHP 7.4 ou superior
+### Versões do PHP
+
+- **Versão Mínima**: PHP 7.4.0
+- **Versão Recomendada**: PHP 8.3.x (para melhor performance e recursos modernos)
+
+**Nota**: O projeto foi desenvolvido e testado com PHP 8.3.26. Versões anteriores à 7.4 não são suportadas.
+
+### Outros Requisitos
+
 - Composer
 - Node.js e npm (opcional, apenas para desenvolvimento frontend)
 - MySQL/MariaDB
@@ -25,7 +33,7 @@ Alternativas: XAMPP, WAMP, MAMP ou Docker.
 ### 1. Clonar o Repositório
 
 ```bash
-git clone git@github.com:leonidasfsilva/ci-books.git
+git clone https://github.com/leonidasfsilva/ci-books.git ci-books
 cd ci-books
 ```
 
@@ -63,6 +71,8 @@ database.default.database = books_management_ci4
 database.default.username = seu_usuario
 database.default.password = sua_senha
 database.default.DBDriver = MySQLi
+database.default.port = 3306
+
 
 # URL base da aplicação
 app.baseURL = 'http://localhost/ci-books/public'

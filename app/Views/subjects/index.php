@@ -148,7 +148,7 @@ o<?= $this->extend('layouts/main') ?>
                         </label>
                         <input type="text" class="form-control form-control-lg" id="Descricao" name="Descricao" required
                                placeholder="Digite o nome do assunto" maxlength="20">
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback d-none">
                             Por favor, insira o nome do assunto (máx. 20 caracteres).
                         </div>
                     </div>
@@ -184,7 +184,7 @@ o<?= $this->extend('layouts/main') ?>
                             <i class="fas fa-tag me-1"></i>Nome do Assunto
                         </label>
                         <input type="text" class="form-control form-control-lg" id="editDescricao" name="Descricao" required maxlength="20">
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback d-none">
                             Por favor, insira o nome do assunto (máx. 20 caracteres).
                         </div>
                     </div>

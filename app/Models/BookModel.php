@@ -21,8 +21,8 @@ class BookModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'Titulo' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-Z0-9\s\-.\']+$/]',
-        'Editora' => 'permit_empty|min_length[1]|max_length[40]|regex_match[/^[a-zA-Z0-9\s\-.\']+$/]',
+        'Titulo' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
+        'Editora' => 'permit_empty|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]*$/]',
         'Edicao' => 'permit_empty|integer|greater_than[0]',
         'AnoPublicacao' => 'permit_empty|exact_length[4]|regex_match[/^\d{4}$/]',
         'Valor' => 'required|decimal|greater_than[0]',
@@ -32,12 +32,12 @@ class BookModel extends Model
             'required' => 'Título é obrigatório.',
             'min_length' => 'Título deve ter pelo menos 1 caractere.',
             'max_length' => 'Título não pode exceder 40 caracteres.',
-            'regex_match' => 'Título contém caracteres inválidos.',
+            'regex_match' => 'Título contém caracteres inválidos. Use apenas letras, números, espaços, hífen, ponto, apóstrofo e &.',
         ],
         'Editora' => [
             'min_length' => 'Editora deve ter pelo menos 1 caractere.',
             'max_length' => 'Editora não pode exceder 40 caracteres.',
-            'regex_match' => 'Editora contém caracteres inválidos.',
+            'regex_match' => 'Editora contém caracteres inválidos. Use apenas letras, números, espaços, hífen, ponto, apóstrofo e &.',
         ],
         'Edicao' => [
             'integer' => 'Edição deve ser um número inteiro.',

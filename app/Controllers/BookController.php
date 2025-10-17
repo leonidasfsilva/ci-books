@@ -47,7 +47,7 @@ class BookController extends BaseController
         if ($this->request->getMethod() === 'post') {
             $rules = [
                 'titulo' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
-                'editora' => 'permit_empty|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
+                'editora' => 'permit_empty|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]*$/]',
                 'edicao' => 'required|integer|greater_than[0]',
                 'ano_publicacao' => 'permit_empty|exact_length[4]|regex_match[/^\d{4}$/]',
                 'valor' => 'required|decimal|greater_than[0]',
@@ -118,7 +118,7 @@ class BookController extends BaseController
         if ($this->request->getMethod() === 'post') {
             $rules = [
                 'titulo' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
-                'editora' => 'permit_empty|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
+                'editora' => 'permit_empty|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]*$/]',
                 'edicao' => 'permit_empty|integer|greater_than[0]',
                 'ano_publicacao' => 'permit_empty|exact_length[4]|regex_match[/^\d{4}$/]',
                 'valor' => 'required|decimal|greater_than[0]',

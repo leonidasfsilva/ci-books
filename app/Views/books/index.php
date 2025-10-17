@@ -272,7 +272,7 @@
                 </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
-            <form action="<?= base_url('books/errorMsg') ?>" method="post" class="needs-validation" novalidate onsubmit="prepareFormData(this)">
+            <form action="<?= base_url('books/create') ?>" method="post" class="needs-validation" novalidate onsubmit="prepareFormData(this)">
                 <div class="modal-body p-2 p-sm-3 p-md-4" style="max-height: 70vh; overflow-y: auto; overflow-x: hidden;">
                     <div class="mb-3 mb-md-4">
                         <label for="titulo" class="form-label fw-semibold required-field">
@@ -499,11 +499,11 @@ function initializeFormValidation() {
     // Add custom validation methods
     $.validator.addMethod("tituloPattern", function(value, element) {
         return this.optional(element) || /^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/.test(value);
-    }, "Título deve conter apenas letras, números, espaços, hífen, ponto, apóstrofo e &.");
+    }, "Título deve conter apenas letras (incluindo acentos), números, espaços, hífen, ponto, apóstrofo e &.");
 
     $.validator.addMethod("editoraPattern", function(value, element) {
         return this.optional(element) || /^[a-zA-ZÀ-ÿ0-9\s\-.\'&]*$/.test(value);
-    }, "Editora deve conter apenas letras, números, espaços, hífen, ponto, apóstrofo e &.");
+    }, "Editora deve conter apenas letras (incluindo acentos), números, espaços, hífen, ponto, apóstrofo e &.");
 
     $.validator.addMethod("anoPattern", function(value, element) {
         return this.optional(element) || /^\d{4}$/.test(value);
@@ -522,6 +522,18 @@ function initializeFormValidation() {
         const subjectCheckboxes = form.querySelectorAll('input[name="subjects[]"]:checked');
         return subjectCheckboxes.length > 0;
     }, "Este campo é obrigatório.");
+
+    $.validator.addMethod("brazilianCurrency", function(value, element) {
+        // Allow empty values (will be caught by required rule)
+        if (!value) return true;
+
+        // Remove currency prefix and formatting
+        value = value.replace('R$ ', '').replace(/\./g, '').replace(',', '.');
+
+        // Check if it's a valid number greater than 0
+        const numericValue = parseFloat(value);
+        return !isNaN(numericValue) && numericValue > 0;
+    }, "Valor deve ser um número válido maior que zero.");
 
     // Initialize validation for add book form
     $("#addBookModal form").validate({
@@ -552,8 +564,7 @@ function initializeFormValidation() {
             },
             valor: {
                 required: true,
-                number: true,
-                min: 0.01
+                brazilianCurrency: true
             },
             "authors[]": {
                 atLeastOneAuthor: true
@@ -577,9 +588,7 @@ function initializeFormValidation() {
                 min: "Edição deve ser maior que zero."
             },
             valor: {
-                required: "Este campo é obrigatório.",
-                number: "Valor deve ser um número.",
-                min: "Valor deve ser maior que zero."
+                required: "Este campo é obrigatório."
             }
         },
         errorElement: "div",
@@ -628,8 +637,7 @@ function initializeFormValidation() {
             },
             valor: {
                 required: true,
-                number: true,
-                min: 0.01
+                brazilianCurrency: true
             },
             "authors[]": {
                 atLeastOneAuthor: true
@@ -653,9 +661,7 @@ function initializeFormValidation() {
                 min: "Edição deve ser maior que zero."
             },
             valor: {
-                required: "Este campo é obrigatório.",
-                number: "Valor deve ser um número.",
-                min: "Valor deve ser maior que zero."
+                required: "Este campo é obrigatório."
             }
         },
         errorElement: "div",
