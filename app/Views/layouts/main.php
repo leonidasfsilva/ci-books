@@ -69,7 +69,7 @@
             <?php endif; ?>
 
             <?php if (session()->has('errors')): ?>
-                <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 rounded-3">
+                <div id="validation-errors" class="alert alert-danger alert-dismissible fade show shadow-sm border-0 rounded-3">
                     <i class="fas fa-exclamation-circle me-2"></i>
                     <ul class="mb-0">
                         <?php foreach (session('errors') as $error): ?>
@@ -104,9 +104,43 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('js/sweetalert2.all.min.js') ?>"></script>
     <script src="<?= base_url('js/jquery.validate.js') ?>"></script>
     <script src="<?= base_url('js/jquery.maskMoney.min.js') ?>"></script>
     <script src="<?= base_url('js/main.js') ?>"></script>
+
+    <!-- SweetAlert2 para mensagens de validação -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Verificar se há erros de validação para exibir no SweetAlert2
+        const validationErrors = document.getElementById('validation-errors');
+        if (validationErrors) {
+            const errorList = validationErrors.querySelectorAll('li');
+            let errorMessages = [];
+            errorList.forEach(function(li) {
+                errorMessages.push(li.textContent);
+            });
+
+            // Esconder o alert padrão
+            validationErrors.style.display = 'none';
+
+            // Exibir SweetAlert2 com os erros
+            Swal.fire({
+                title: 'Erro de Validação',
+                html: '<ul style="text-align: left; margin: 0; padding-left: 20px;">' +
+                      errorMessages.map(msg => '<li>' + msg + '</li>').join('') +
+                      '</ul>',
+                icon: 'error',
+                confirmButtonText: 'Entendi',
+                confirmButtonColor: '#dc3545',
+                customClass: {
+                    popup: 'swal-wide'
+                }
+            });
+        }
+    });
+    </script>
+
     <?= $this->renderSection('scripts') ?>
 </body>
 </html>
