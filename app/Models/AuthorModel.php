@@ -21,7 +21,7 @@ class AuthorModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'Nome' => 'required|min_length[1]|max_length[40]|is_unique[Autor.Nome,CodAu,{CodAu}]|regex_match[/^[a-zA-Z0-9\s\-.\']+$/]',
+        'Nome' => 'required|min_length[1]|max_length[40]',
     ];
     protected $validationMessages   = [
         'Nome' => [

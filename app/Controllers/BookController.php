@@ -38,13 +38,7 @@ class BookController extends BaseController
 
     public function create()
     {
-        $data = [
-            'title' => 'Adicionar Livro',
-            'authors' => $this->authorModel->orderBy('Nome')->findAll(),
-            'subjects' => $this->subjectModel->orderBy('Descricao')->findAll(),
-        ];
-
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
                 'titulo' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
                 'editora' => 'permit_empty|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]*$/]',
@@ -98,7 +92,8 @@ class BookController extends BaseController
             }
         }
 
-        return view('books/index', $data);
+        // GET request - redirect to books index
+        return redirect()->to('/books');
     }
 
     public function edit($id)
@@ -115,7 +110,7 @@ class BookController extends BaseController
             'subjects' => $this->subjectModel->orderBy('Descricao')->findAll(),
         ];
 
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
                 'titulo' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
                 'editora' => 'permit_empty|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]*$/]',
@@ -172,7 +167,8 @@ class BookController extends BaseController
             }
         }
 
-        return view('books/index', $data);
+        // GET request - redirect to books index
+        return redirect()->to('/books');
     }
 
     public function delete($id)
@@ -200,7 +196,7 @@ class BookController extends BaseController
         // Método de teste para validação de mensagens de erro
         // Suporta tanto GET (para visualização) quanto POST (para validação)
 
-        if ($this->request->getMethod() === 'GET') {
+        if ($this->request->is('get')) {
             // Retorna a view da listagem de livros para teste
             $data = [
                 'title' => 'Teste de Validação - Gerenciar Livros',
@@ -253,7 +249,7 @@ class BookController extends BaseController
         // Método de teste para mensagens de sucesso
         // Suporta tanto GET (para visualização) quanto POST (para simular sucesso)
 
-        if ($this->request->getMethod() === 'GET') {
+        if ($this->request->is('get')) {
             // Retorna a view da listagem de livros para teste
             $data = [
                 'title' => 'Teste de Mensagens de Sucesso - Gerenciar Livros',

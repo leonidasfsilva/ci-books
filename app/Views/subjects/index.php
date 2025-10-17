@@ -241,6 +241,7 @@ o<?= $this->extend('layouts/main') ?>
     var forms = document.querySelectorAll('.needs-validation')
     Array.prototype.slice.call(forms).forEach(function(form) {
         form.addEventListener('submit', function(event) {
+            // Check if form is valid before preventing default
             if (!form.checkValidity()) {
                 event.preventDefault()
                 event.stopPropagation()
@@ -250,6 +251,44 @@ o<?= $this->extend('layouts/main') ?>
     })
 })()
 
+// jQuery Validation for subjects forms
+$(document).ready(function() {
+    // Initialize validation for edit subject form
+    $("#editForm").validate({
+        rules: {
+            Descricao: {
+                required: true,
+                minlength: 1,
+                maxlength: 20
+            }
+        },
+        messages: {
+            Descricao: {
+                required: "O campo Descrição é obrigatório.",
+                minlength: "A descrição deve ter pelo menos 1 caractere.",
+                maxlength: "A descrição deve ter no máximo 20 caracteres."
+            }
+        },
+        errorElement: "div",
+        errorPlacement: function(error, element) {
+            let errorDiv = element.parent().find('.invalid-feedback');
+            if (errorDiv.length === 0) {
+                errorDiv = $('<div class="invalid-feedback"></div>');
+                element.after(errorDiv);
+            }
+            errorDiv.html(error.text()).show();
+            element.addClass('is-invalid');
+        },
+        success: function(label, element) {
+            $(element).removeClass('is-invalid');
+            $(element).parent().find('.invalid-feedback').hide();
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+});
+
 // Reset form when add subject modal is closed
 document.getElementById('addSubjectModal').addEventListener('hidden.bs.modal', function () {
     var form = this.querySelector('form');
@@ -257,10 +296,49 @@ document.getElementById('addSubjectModal').addEventListener('hidden.bs.modal', f
     form.classList.remove('was-validated');
 });
 
+// Reset form when edit modal is closed
+document.getElementById('editModal').addEventListener('hidden.bs.modal', function () {
+    var form = document.getElementById('editForm');
+    form.reset();
+    form.classList.remove('was-validated');
+    form.action = ''; // Clear action
+
+    // Clear validation states
+    var input = document.getElementById('editDescricao');
+    input.classList.remove('is-invalid');
+    input.setCustomValidity('');
+});
+
 function editSubject(id, descricao) {
+    // Validate inputs
+    if (!id || !descricao || descricao.trim() === '') {
+        console.error('Invalid parameters for editSubject:', {id, descricao});
+        alert('Erro: Dados inválidos para edição.');
+        return;
+    }
+
+    // Clear any previous validation states
+    const form = document.getElementById('editForm');
+    const input = document.getElementById('editDescricao');
+
+    form.classList.remove('was-validated');
+    input.classList.remove('is-invalid');
+    input.setCustomValidity('');
+
+    // Populate form
     document.getElementById('editId').value = id;
-    document.getElementById('editDescricao').value = descricao;
+    document.getElementById('editDescricao').value = descricao.trim();
+
+    // Set form action
     document.getElementById('editForm').action = '<?= base_url('subjects/edit/') ?>' + id;
+
+    // Force validation reset after a short delay to ensure value is set
+    setTimeout(() => {
+        input.classList.remove('is-invalid');
+        input.setCustomValidity('');
+    }, 100);
+
+    // Show modal
     new bootstrap.Modal(document.getElementById('editModal')).show();
 }
 

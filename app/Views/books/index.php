@@ -30,7 +30,7 @@
                     <i class="fas fa-list me-2"></i>Lista de Livros
                 </h5>
                 <span class="badge bg-light text-primary rounded-pill align-self-start">
-                    <i class="fas fa-book me-1"></i><?= count($books) ?> livros
+                    <i class="fas fa-book me-1"></i><?= isset($books) && is_array($books) ? count($books) : 0 ?> livros
                 </span>
             </div>
             <div class="card-body p-3 p-md-4">
@@ -272,7 +272,7 @@
                 </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
-            <form action="<?= base_url('books/create') ?>" method="post" class="needs-validation" novalidate onsubmit="prepareFormData(this)">
+            <form action="<?= base_url('books/create') ?>" method="post" id="addBookForm" class="needs-validation" novalidate onsubmit="prepareFormData(this)">
                 <div class="modal-body p-2 p-sm-3 p-md-4" style="max-height: 70vh; overflow-y: auto; overflow-x: hidden;">
                     <div class="mb-3 mb-md-4">
                         <label for="titulo" class="form-label fw-semibold required-field">
@@ -536,7 +536,7 @@ function initializeFormValidation() {
     }, "Valor deve ser um número válido maior que zero.");
 
     // Initialize validation for add book form
-    $("#addBookModal form").validate({
+    $("#addBookForm").validate({
         rules: {
             titulo: {
                 required: true,
@@ -689,13 +689,20 @@ function initializeFormValidation() {
 
 // Reset form when add book modal is closed
 document.getElementById('addBookModal').addEventListener('hidden.bs.modal', function () {
-    var form = this.querySelector('form');
+    var form = document.getElementById('addBookForm');
     form.reset();
     form.classList.remove('was-validated');
     // Clear checkboxes
     form.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
         checkbox.checked = false;
     });
+    // Reset jQuery validation
+    if ($.validator) {
+        var validator = $("#addBookForm").validate();
+        validator.resetForm();
+        $("#addBookForm .is-invalid").removeClass('is-invalid');
+        $("#addBookForm .invalid-feedback").hide();
+    }
 });
 
 // Initialize jQuery MaskMoney for currency formatting
@@ -767,10 +774,34 @@ function formatCurrency(input) {
 function getNumericValue(formattedValue) {
     if (!formattedValue) return '';
 
-    // Remove 'R$ ' prefix and formatting
-    let numeric = formattedValue.replace('R$ ', '').replace(/\./g, '').replace(',', '.');
+    // Remove 'R$ ' prefix
+    let cleanValue = formattedValue.replace('R$ ', '');
 
-    return parseFloat(numeric) || '';
+    // If value already has dot (already converted), return as is
+    if (cleanValue.includes('.') && !cleanValue.includes(',')) {
+        const parsed = parseFloat(cleanValue);
+        return isNaN(parsed) ? '' : parsed.toFixed(2);
+    }
+
+    // Handle Brazilian currency format: replace last comma with dot, remove other dots
+    // Example: "6.450,50" -> "6450.50"
+    const parts = cleanValue.split(',');
+    if (parts.length === 2) {
+        // Has comma (decimal separator)
+        const integerPart = parts[0].replace(/\./g, ''); // Remove thousand separators
+        const decimalPart = parts[1];
+        cleanValue = integerPart + '.' + decimalPart;
+    } else {
+        // No comma, just remove dots
+        cleanValue = cleanValue.replace(/\./g, '');
+    }
+
+    // Parse and validate
+    const parsed = parseFloat(cleanValue);
+    if (isNaN(parsed)) return '';
+
+    // Return with proper decimal formatting for MySQL
+    return parsed.toFixed(2);
 }
 
 // Edit book function

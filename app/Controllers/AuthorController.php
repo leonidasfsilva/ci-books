@@ -31,9 +31,9 @@ class AuthorController extends BaseController
             'title' => 'Adicionar Autor',
         ];
 
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
-                'Nome' => 'required|min_length[1]|max_length[40]|is_unique[Autor.Nome]|regex_match[/^[a-zA-Z0-9\s\-.\']+$/]',
+                'Nome' => 'required|min_length[1]|max_length[40]',
             ];
 
             if ($this->validate($rules)) {
@@ -77,9 +77,9 @@ class AuthorController extends BaseController
             'author' => $author,
         ];
 
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
-                'Nome' => 'required|min_length[1]|max_length[40]|is_unique[Autor.Nome,CodAu,{id}]|regex_match[/^[a-zA-Z0-9\s\-.\']+$/]',
+                'Nome' => 'required|min_length[1]|max_length[40]',
             ];
 
             if ($this->validate($rules)) {

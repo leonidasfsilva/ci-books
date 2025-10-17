@@ -21,7 +21,7 @@ class SubjectModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'Descricao' => 'required|min_length[1]|max_length[20]|is_unique[Assunto.Descricao,codAs,{codAs}]|regex_match[/^[a-zA-Z0-9\s\-.\']+$/]',
+        'Descricao' => 'required|min_length[1]|max_length[20]',
     ];
     protected $validationMessages   = [
         'Descricao' => [

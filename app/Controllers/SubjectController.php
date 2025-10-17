@@ -31,9 +31,9 @@ class SubjectController extends BaseController
             'title' => 'Adicionar Assunto',
         ];
 
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
-                'Descricao' => 'required|min_length[1]|max_length[20]|is_unique[Assunto.Descricao]|regex_match[/^[a-zA-Z0-9\s\-.\']+$/]',
+                'Descricao' => 'required|min_length[1]|max_length[20]',
             ];
 
             if ($this->validate($rules)) {
@@ -77,9 +77,9 @@ class SubjectController extends BaseController
             'subject' => $subject,
         ];
 
-        if ($this->request->getMethod() === 'post') {
+        if ($this->request->is('post')) {
             $rules = [
-                'Descricao' => 'required|min_length[1]|max_length[20]|is_unique[Assunto.Descricao,codAs,{id}]|regex_match[/^[a-zA-Z0-9\s\-.\']+$/]',
+                'Descricao' => 'required|min_length[1]|max_length[20]',
             ];
 
             if ($this->validate($rules)) {
