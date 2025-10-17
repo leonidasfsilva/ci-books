@@ -29,6 +29,7 @@ $routes->post('books/edit/(:num)', 'BookController::edit/$1');
 $routes->get('books/delete/(:num)', 'BookController::delete/$1');
 $routes->get('books/getBook/(:num)', 'BookController::getBook/$1');
 $routes->match(['get', 'post'], 'books/errorMsg', 'BookController::errorMsg');
+$routes->match(['get', 'post'], 'books/successMsg', 'BookController::successMsg');
 
 // Reports routes
 $routes->get('reports', 'ReportController::index');

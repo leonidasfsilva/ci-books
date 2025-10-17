@@ -53,7 +53,7 @@
     <main class="flex-shrink-0" style="margin-top: 60px;">
         <div class="container-fluid px-1 px-sm-2 px-md-4 py-2 py-sm-3 py-md-5">
             <?php if (session()->has('success')): ?>
-                <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 rounded-3">
+                <div id="success-message" class="alert alert-success alert-dismissible fade show shadow-sm border-0 rounded-3">
                     <i class="fas fa-check-circle me-2"></i>
                     <?= session('success') ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -109,7 +109,7 @@
     <script src="<?= base_url('js/jquery.maskMoney.min.js') ?>"></script>
     <script src="<?= base_url('js/main.js') ?>"></script>
 
-    <!-- SweetAlert2 para mensagens de validação -->
+    <!-- SweetAlert2 para mensagens de validação e sucesso -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Verificar se há erros de validação para exibir no SweetAlert2
@@ -133,6 +133,28 @@
                 icon: 'error',
                 showConfirmButton: false,
                 showCloseButton: true,
+                customClass: {
+                    popup: 'swal-wide'
+                }
+            });
+        }
+
+        // Verificar se há mensagens de sucesso para exibir no SweetAlert2
+        const successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            const successText = successMessage.textContent.trim();
+
+            // Esconder o alert padrão
+            successMessage.style.display = 'none';
+
+            // Exibir SweetAlert2 com sucesso
+            Swal.fire({
+                title: 'Sucesso!',
+                text: successText,
+                icon: 'success',
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 3000,
                 customClass: {
                     popup: 'swal-wide'
                 }
