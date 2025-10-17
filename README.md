@@ -6,6 +6,7 @@ Este é um sistema de gerenciamento de livros desenvolvido com CodeIgniter 4, pe
 
 - PHP 7.4 ou superior
 - Composer
+- Node.js e npm (opcional, apenas para desenvolvimento frontend)
 - MySQL/MariaDB
 - Servidor web (Apache/Nginx) ou ambiente local como Laragon/XAMPP
 
@@ -21,7 +22,11 @@ cd ci-books
 ### 2. Instalar Dependências
 
 ```bash
+# Instalar dependências PHP
 composer install
+
+# Instalar dependências JavaScript (opcional, apenas para desenvolvimento)
+npm install
 ```
 
 ### 3. Configurar o Ambiente
@@ -103,10 +108,13 @@ Você deve ver a página inicial do sistema de cadastro de livros.
 
 ## Funcionalidades
 
-- Cadastro de livros
+- Cadastro de livros com validação avançada
 - Cadastro de autores
 - Cadastro de assuntos
-- Relatórios
+- Relatórios consolidados
+- Sistema de notificações elegante (SweetAlert2)
+- Validações personalizadas em português
+- Interface responsiva com Bootstrap 5
 
 ## Desenvolvimento
 
@@ -120,13 +128,31 @@ Para contribuir com o desenvolvimento:
 
 ## Testes
 
-O projeto inclui uma suíte completa de testes unitários e de integração. Para executar os testes:
+O projeto inclui uma suíte completa de testes unitários e de integração com 100% de cobertura. Para executar os testes:
 
 ```bash
 composer test
 ```
 
 **Nota**: Os testes usam SQLite em memória para isolamento e velocidade. Alguns testes podem ser pulados se houver limitações específicas do ambiente de teste, mas todos os testes críticos passam com sucesso.
+
+### Endpoints de Teste
+
+O projeto inclui endpoints especiais para testar validações:
+
+- `/books/errorMsg` - Testa mensagens de erro de validação
+- `/books/successMsg` - Testa mensagens de sucesso
+
+Ambos suportam GET (visualização) e POST (simulação de operações).
+
+## Tecnologias Utilizadas
+
+- **Backend**: CodeIgniter 4 (PHP Framework)
+- **Frontend**: Bootstrap 5, Font Awesome, SweetAlert2
+- **Banco de Dados**: MySQL/MariaDB com migrações
+- **Testes**: PHPUnit com SQLite em memória
+- **Validação**: Regras customizadas em português
+- **Notificações**: SweetAlert2 integrado com flashdata
 
 ## Suporte
 
