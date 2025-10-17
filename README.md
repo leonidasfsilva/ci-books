@@ -78,11 +78,21 @@ database.default.port = 3306
 app.baseURL = 'http://localhost/ci-books/public'
 ```
 
-### 4. Criar o Banco de Dados
+### 4. Criar Diretórios Necessários
+
+Execute o comando para criar os diretórios obrigatórios do CodeIgniter:
+
+```bash
+php spark make:writable
+```
+
+Este comando cria automaticamente os diretórios necessários em `writable/` (cache, logs, sessions, uploads, debugbar).
+
+### 5. Criar o Banco de Dados
 
 Crie um banco de dados MySQL chamado `books_management_ci4`.
 
-### 5. Executar Migrações (Recomendado)
+### 6. Executar Migrações (Recomendado)
 
 Execute as migrações e seeds do CodeIgniter para configurar o banco de dados:
 
@@ -93,7 +103,7 @@ php spark db:seed CreateSampleData
 
 **Alternativa**: Você pode executar o script SQL localizado em `documentation/modelagem.sql` diretamente no MySQL para criar as tabelas e inserir dados de exemplo, mas o método recomendado é usar as migrações do CodeIgniter.
 
-### 6. Configurar o Servidor Web
+### 7. Configurar o Servidor Web
 
 #### Opção 1: Usando Laragon (Recomendado)
 
@@ -119,7 +129,7 @@ php spark serve
 
 A aplicação estará disponível em `http://localhost:8080`
 
-### 7. Verificar a Instalação
+### 8. Verificar a Instalação
 
 Acesse `http://localhost/ci-books/public` (ou a URL configurada) no seu navegador.
 
