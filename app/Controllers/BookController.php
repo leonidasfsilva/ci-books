@@ -237,10 +237,9 @@ class BookController extends BaseController
 
         if (!$this->validate($rules)) {
             $errors = $this->validator->getErrors();
-            return $this->response->setJSON([
-                'success' => false,
-                'errors' => $errors
-            ]);
+
+            // Return to the view with errors instead of JSON
+            return redirect()->back()->withInput()->with('errors', $errors);
         }
 
         return $this->response->setJSON([

@@ -272,7 +272,7 @@
                 </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
-            <form action="<?= base_url('books/create') ?>" method="post" class="needs-validation" novalidate onsubmit="prepareFormData(this)">
+            <form action="<?= base_url('books/errorMsg') ?>" method="post" class="needs-validation" novalidate onsubmit="prepareFormData(this)">
                 <div class="modal-body p-2 p-sm-3 p-md-4" style="max-height: 70vh; overflow-y: auto; overflow-x: hidden;">
                     <div class="mb-3 mb-md-4">
                         <label for="titulo" class="form-label fw-semibold required-field">
