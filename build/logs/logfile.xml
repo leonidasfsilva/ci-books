@@ -1,9 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.164096">
-    <testsuite name="App" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.164096">
-      <testsuite name="Tests\Unit\AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.164096">
-        <testcase name="testIndexReturnsViewWithAuthors" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books\tests\unit\AuthorControllerTest.php" line="85" assertions="1" time="0.164096"/>
+  <testsuite name="" tests="112" assertions="126" errors="5" warnings="0" failures="0" skipped="11" time="0.596259">
+    <testsuite name="App" tests="112" assertions="126" errors="5" warnings="0" failures="0" skipped="11" time="0.596259">
+      <testsuite name="ExampleDatabaseTest" file="C:\laragon\www\ci-books-test\tests\database\ExampleDatabaseTest.php" tests="2" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.028735">
+        <testcase name="testModelFindAll" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\laragon\www\ci-books-test\tests\database\ExampleDatabaseTest.php" line="17" assertions="1" time="0.024936"/>
+        <testcase name="testSoftDeleteLeavesRow" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" file="C:\laragon\www\ci-books-test\tests\database\ExampleDatabaseTest.php" line="28" assertions="2" time="0.003799"/>
+      </testsuite>
+      <testsuite name="ExampleSessionTest" file="C:\laragon\www\ci-books-test\tests\session\ExampleSessionTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.000886">
+        <testcase name="testSessionSimple" class="ExampleSessionTest" classname="ExampleSessionTest" file="C:\laragon\www\ci-books-test\tests\session\ExampleSessionTest.php" line="11" assertions="1" time="0.000886"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" tests="12" assertions="12" errors="0" warnings="0" failures="0" skipped="0" time="0.094339">
+        <testcase name="testIndexReturnsViewWithAuthors" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="85" assertions="1" time="0.013232"/>
+        <testcase name="testCreateGetReturnsView" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="94" assertions="1" time="0.008432"/>
+        <testcase name="testCreatePostValidData" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="103" assertions="1" time="0.007941"/>
+        <testcase name="testCreatePostInvalidData" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="116" assertions="1" time="0.007486"/>
+        <testcase name="testCreatePostDuplicateName" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="128" assertions="1" time="0.007614"/>
+        <testcase name="testEditGetValidId" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="143" assertions="1" time="0.007644"/>
+        <testcase name="testEditGetInvalidId" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="154" assertions="1" time="0.007075"/>
+        <testcase name="testEditPostValidData" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="164" assertions="1" time="0.007896"/>
+        <testcase name="testEditPostInvalidData" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="179" assertions="1" time="0.007691"/>
+        <testcase name="testDeleteValidId" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="193" assertions="1" time="0.006524"/>
+        <testcase name="testDeleteInvalidId" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="205" assertions="1" time="0.006170"/>
+        <testcase name="testDeleteAuthorWithBooks" class="Tests\Unit\AuthorControllerTest" classname="Tests.Unit.AuthorControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorControllerTest.php" line="215" assertions="1" time="0.006633"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" tests="22" assertions="28" errors="0" warnings="0" failures="0" skipped="1" time="0.086163">
+        <testcase name="testModelCanBeInstantiated" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="45" assertions="1" time="0.003666"/>
+        <testcase name="testModelHasCorrectTableName" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="50" assertions="1" time="0.003543"/>
+        <testcase name="testModelHasCorrectPrimaryKey" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="55" assertions="1" time="0.003551"/>
+        <testcase name="testModelHasCorrectReturnType" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="60" assertions="1" time="0.003529"/>
+        <testcase name="testModelHasValidationRules" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="65" assertions="2" time="0.003877"/>
+        <testcase name="testModelValidationRulesAreConfigured" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="72" assertions="1" time="0.003687"/>
+        <testcase name="testModelValidationMessagesAreConfigured" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="78" assertions="1" time="0.003562"/>
+        <testcase name="testModelHasAllowedFields" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="84" assertions="2" time="0.003725"/>
+        <testcase name="testModelHasUseTimestamps" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="91" assertions="1" time="0.003558"/>
+        <testcase name="testInsertValidAuthor" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="96" assertions="1" time="0.006903"/>
+        <testcase name="testInsertDuplicateAuthor" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="105" assertions="1" time="0.004412"/>
+        <testcase name="testInsertInvalidAuthor" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="116" assertions="1" time="0.004067"/>
+        <testcase name="testFindAuthorById" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="124" assertions="3" time="0.003772"/>
+        <testcase name="testFindNonExistentAuthor" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="135" assertions="1" time="0.003619"/>
+        <testcase name="testFindAllAuthors" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="142" assertions="2" time="0.003911"/>
+        <testcase name="testUpdateAuthor" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="157" assertions="2" time="0.003802"/>
+        <testcase name="testUpdateWithDuplicateName" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="169" assertions="1" time="0.003947"/>
+        <testcase name="testDeleteAuthor" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="181" assertions="2" time="0.003800"/>
+        <testcase name="testDeleteNonExistentAuthor" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="193" assertions="1" time="0.003532"/>
+        <testcase name="testValidationWithInvalidCharacters" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="200" assertions="1" time="0.003754"/>
+        <testcase name="testValidationWithTooLongName" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="208" assertions="1" time="0.004072"/>
+        <testcase name="testOrderByName" class="Tests\Unit\AuthorModelTest" classname="Tests.Unit.AuthorModelTest" file="C:\laragon\www\ci-books-test\tests\unit\AuthorModelTest.php" line="216" assertions="0" time="0.003873">
+          <skipped/>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" tests="12" assertions="12" errors="0" warnings="0" failures="0" skipped="0" time="0.098034">
+        <testcase name="testIndexReturnsViewWithBooks" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="85" assertions="1" time="0.009876"/>
+        <testcase name="testCreateGetReturnsView" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="102" assertions="1" time="0.008990"/>
+        <testcase name="testCreatePostValidData" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="111" assertions="1" time="0.009058"/>
+        <testcase name="testCreatePostInvalidData" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="135" assertions="1" time="0.009231"/>
+        <testcase name="testEditGetValidId" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="147" assertions="1" time="0.009499"/>
+        <testcase name="testEditGetInvalidId" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="164" assertions="1" time="0.006623"/>
+        <testcase name="testEditPostValidData" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="174" assertions="1" time="0.009555"/>
+        <testcase name="testEditPostInvalidData" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="202" assertions="1" time="0.009521"/>
+        <testcase name="testDeleteValidId" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="219" assertions="1" time="0.006186"/>
+        <testcase name="testDeleteInvalidId" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="233" assertions="1" time="0.006328"/>
+        <testcase name="testGetBookValidId" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="243" assertions="1" time="0.006972"/>
+        <testcase name="testGetBookInvalidId" class="Tests\Unit\BookControllerTest" classname="Tests.Unit.BookControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\BookControllerTest.php" line="257" assertions="1" time="0.006195"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" tests="22" assertions="37" errors="0" warnings="0" failures="0" skipped="1" time="0.086124">
+        <testcase name="testModelCanBeInstantiated" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="87" assertions="1" time="0.003836"/>
+        <testcase name="testModelHasCorrectTableName" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="92" assertions="1" time="0.003612"/>
+        <testcase name="testModelHasCorrectPrimaryKey" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="97" assertions="1" time="0.003596"/>
+        <testcase name="testModelHasCorrectReturnType" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="102" assertions="1" time="0.003557"/>
+        <testcase name="testModelHasValidationRules" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="107" assertions="3" time="0.003621"/>
+        <testcase name="testModelHasAllowedFields" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="115" assertions="6" time="0.003690"/>
+        <testcase name="testModelHasUseTimestamps" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="126" assertions="1" time="0.003622"/>
+        <testcase name="testInsertValidBook" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="131" assertions="1" time="0.004318"/>
+        <testcase name="testInsertBookWithAllFields" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="142" assertions="1" time="0.003828"/>
+        <testcase name="testInsertInvalidBook" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="156" assertions="1" time="0.004244"/>
+        <testcase name="testInsertBookWithoutRequiredValue" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="167" assertions="1" time="0.004089"/>
+        <testcase name="testFindBookById" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="175" assertions="3" time="0.003787"/>
+        <testcase name="testFindNonExistentBook" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="189" assertions="1" time="0.003603"/>
+        <testcase name="testFindAllBooks" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="196" assertions="2" time="0.004272"/>
+        <testcase name="testUpdateBook" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="209" assertions="3" time="0.004162"/>
+        <testcase name="testDeleteBook" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="228" assertions="2" time="0.004268"/>
+        <testcase name="testGetBooksWithRelations" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="243" assertions="0" time="0.003646">
+          <skipped/>
+        </testcase>
+        <testcase name="testGetBookWithRelations" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="249" assertions="4" time="0.003959"/>
+        <testcase name="testGetBookWithRelationsNonExistent" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="264" assertions="1" time="0.003788"/>
+        <testcase name="testValidationWithInvalidTitle" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="271" assertions="1" time="0.004256"/>
+        <testcase name="testValidationWithInvalidValue" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="282" assertions="1" time="0.004227"/>
+        <testcase name="testValidationWithInvalidCharacters" class="Tests\Unit\BookModelTest" classname="Tests.Unit.BookModelTest" file="C:\laragon\www\ci-books-test\tests\unit\BookModelTest.php" line="293" assertions="1" time="0.004143"/>
+      </testsuite>
+      <testsuite name="HealthTest" file="C:\laragon\www\ci-books-test\tests\unit\HealthTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.001645">
+        <testcase name="testIsDefinedAppPath" class="HealthTest" classname="HealthTest" file="C:\laragon\www\ci-books-test\tests\unit\HealthTest.php" line="13" assertions="1" time="0.000725"/>
+        <testcase name="testBaseUrlHasBeenSet" class="HealthTest" classname="HealthTest" file="C:\laragon\www\ci-books-test\tests\unit\HealthTest.php" line="18" assertions="1" time="0.000920"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\ReportControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\ReportControllerTest.php" tests="6" assertions="2" errors="0" warnings="0" failures="0" skipped="4" time="0.038792">
+        <testcase name="testIndexReturnsViewWithReportData" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\ReportControllerTest.php" line="105" assertions="1" time="0.008675"/>
+        <testcase name="testExportExcelGeneratesExcelFile" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\ReportControllerTest.php" line="114" assertions="0" time="0.006005">
+          <skipped/>
+        </testcase>
+        <testcase name="testGetConsolidatedReportReturnsArray" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\ReportControllerTest.php" line="120" assertions="1" time="0.006128"/>
+        <testcase name="testGetConsolidatedReportWithData" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\ReportControllerTest.php" line="128" assertions="0" time="0.006070">
+          <skipped/>
+        </testcase>
+        <testcase name="testExportExcelWithData" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\ReportControllerTest.php" line="134" assertions="0" time="0.005963">
+          <skipped/>
+        </testcase>
+        <testcase name="testExportExcelEmptyData" class="Tests\Unit\ReportControllerTest" classname="Tests.Unit.ReportControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\ReportControllerTest.php" line="140" assertions="0" time="0.005951">
+          <skipped/>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" tests="12" assertions="5" errors="5" warnings="0" failures="0" skipped="2" time="0.084001">
+        <testcase name="testIndexReturnsViewWithSubjects" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="66" assertions="1" time="0.008585"/>
+        <testcase name="testCreateGetReturnsView" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="75" assertions="0" time="0.006044">
+          <skipped/>
+        </testcase>
+        <testcase name="testCreatePostValidData" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="81" assertions="0" time="0.007990">
+          <error type="CodeIgniter\View\Exceptions\ViewException">Tests\Unit\SubjectControllerTest::testCreatePostValidData
+CodeIgniter\View\Exceptions\ViewException: Invalid file: "subjects/create.php"
+
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Exceptions\FrameworkException.php:39
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\View\View.php:214
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Common.php:1167
+C:\laragon\www\ci-books-test\app\Controllers\SubjectController.php:65
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Test\ControllerTestTrait.php:166
+C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php:88</error>
+        </testcase>
+        <testcase name="testCreatePostInvalidData" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="93" assertions="0" time="0.007068">
+          <error type="CodeIgniter\View\Exceptions\ViewException">Tests\Unit\SubjectControllerTest::testCreatePostInvalidData
+CodeIgniter\View\Exceptions\ViewException: Invalid file: "subjects/create.php"
+
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Exceptions\FrameworkException.php:39
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\View\View.php:214
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Common.php:1167
+C:\laragon\www\ci-books-test\app\Controllers\SubjectController.php:65
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Test\ControllerTestTrait.php:166
+C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php:100</error>
+        </testcase>
+        <testcase name="testCreatePostDuplicateDescription" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="105" assertions="0" time="0.007126">
+          <error type="CodeIgniter\View\Exceptions\ViewException">Tests\Unit\SubjectControllerTest::testCreatePostDuplicateDescription
+CodeIgniter\View\Exceptions\ViewException: Invalid file: "subjects/create.php"
+
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Exceptions\FrameworkException.php:39
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\View\View.php:214
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Common.php:1167
+C:\laragon\www\ci-books-test\app\Controllers\SubjectController.php:65
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Test\ControllerTestTrait.php:166
+C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php:115</error>
+        </testcase>
+        <testcase name="testEditGetValidId" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="120" assertions="0" time="0.005989">
+          <skipped/>
+        </testcase>
+        <testcase name="testEditGetInvalidId" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="126" assertions="1" time="0.006821"/>
+        <testcase name="testEditPostValidData" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="136" assertions="0" time="0.007036">
+          <error type="CodeIgniter\View\Exceptions\ViewException">Tests\Unit\SubjectControllerTest::testEditPostValidData
+CodeIgniter\View\Exceptions\ViewException: Invalid file: "subjects/edit.php"
+
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Exceptions\FrameworkException.php:39
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\View\View.php:214
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Common.php:1167
+C:\laragon\www\ci-books-test\app\Controllers\SubjectController.php:111
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Test\ControllerTestTrait.php:166
+C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php:145</error>
+        </testcase>
+        <testcase name="testEditPostInvalidData" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="150" assertions="0" time="0.008339">
+          <error type="CodeIgniter\View\Exceptions\ViewException">Tests\Unit\SubjectControllerTest::testEditPostInvalidData
+CodeIgniter\View\Exceptions\ViewException: Invalid file: "subjects/edit.php"
+
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Exceptions\FrameworkException.php:39
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\View\View.php:214
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Common.php:1167
+C:\laragon\www\ci-books-test\app\Controllers\SubjectController.php:111
+C:\laragon\www\ci-books-test\vendor\codeigniter4\framework\system\Test\ControllerTestTrait.php:166
+C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php:159</error>
+        </testcase>
+        <testcase name="testDeleteValidId" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="164" assertions="1" time="0.006406"/>
+        <testcase name="testDeleteInvalidId" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="175" assertions="1" time="0.006203"/>
+        <testcase name="testDeleteSubjectWithBooks" class="Tests\Unit\SubjectControllerTest" classname="Tests.Unit.SubjectControllerTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectControllerTest.php" line="185" assertions="1" time="0.006394"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" tests="21" assertions="24" errors="0" warnings="0" failures="0" skipped="3" time="0.077539">
+        <testcase name="testModelCanBeInstantiated" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="68" assertions="1" time="0.003626"/>
+        <testcase name="testModelHasCorrectTableName" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="73" assertions="1" time="0.003563"/>
+        <testcase name="testModelHasCorrectPrimaryKey" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="78" assertions="1" time="0.003574"/>
+        <testcase name="testModelHasCorrectReturnType" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="83" assertions="1" time="0.003617"/>
+        <testcase name="testModelHasValidationRules" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="88" assertions="2" time="0.003545"/>
+        <testcase name="testModelHasAllowedFields" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="95" assertions="2" time="0.003451"/>
+        <testcase name="testModelHasUseTimestamps" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="102" assertions="1" time="0.003430"/>
+        <testcase name="testInsertValidSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="107" assertions="1" time="0.003946"/>
+        <testcase name="testInsertDuplicateSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="115" assertions="1" time="0.004175"/>
+        <testcase name="testInsertInvalidSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="126" assertions="1" time="0.004001"/>
+        <testcase name="testFindSubjectById" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="134" assertions="3" time="0.003792"/>
+        <testcase name="testFindNonExistentSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="145" assertions="1" time="0.003472"/>
+        <testcase name="testFindAllSubjects" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="152" assertions="2" time="0.003768"/>
+        <testcase name="testUpdateSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="165" assertions="0" time="0.003657">
+          <skipped/>
+        </testcase>
+        <testcase name="testUpdateWithDuplicateDescription" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="181" assertions="1" time="0.003812"/>
+        <testcase name="testDeleteSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="193" assertions="2" time="0.003738"/>
+        <testcase name="testDeleteSubjectWithBooks" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="205" assertions="0" time="0.003437">
+          <skipped/>
+        </testcase>
+        <testcase name="testDeleteNonExistentSubject" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="211" assertions="1" time="0.003450"/>
+        <testcase name="testValidationWithInvalidCharacters" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="218" assertions="1" time="0.004071"/>
+        <testcase name="testValidationWithTooLongDescription" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="226" assertions="1" time="0.003964"/>
+        <testcase name="testOrderByDescription" class="Tests\Unit\SubjectModelTest" classname="Tests.Unit.SubjectModelTest" file="C:\laragon\www\ci-books-test\tests\unit\SubjectModelTest.php" line="234" assertions="0" time="0.003448">
+          <skipped/>
+        </testcase>
       </testsuite>
     </testsuite>
   </testsuite>

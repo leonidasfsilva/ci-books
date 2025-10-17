@@ -51,9 +51,147 @@
         </style>
     </head>
     <body>
+        <h2>Example Database</h2>
+        <ul>
+            <li class="success">Model find all</li>
+            <li class="success">Soft delete leaves row</li>
+        </ul>
+        <h2>Example Session</h2>
+        <ul>
+            <li class="success">Session simple</li>
+        </ul>
         <h2>Author Controller (Tests\Unit\AuthorController)</h2>
         <ul>
             <li class="success">Index returns view with authors</li>
+            <li class="success">Create get returns view</li>
+            <li class="success">Create post valid data</li>
+            <li class="success">Create post invalid data</li>
+            <li class="success">Create post duplicate name</li>
+            <li class="success">Edit get valid id</li>
+            <li class="success">Edit get invalid id</li>
+            <li class="success">Edit post valid data</li>
+            <li class="success">Edit post invalid data</li>
+            <li class="success">Delete valid id</li>
+            <li class="success">Delete invalid id</li>
+            <li class="success">Delete author with books</li>
+        </ul>
+        <h2>Author Model (Tests\Unit\AuthorModel)</h2>
+        <ul>
+            <li class="success">Model can be instantiated</li>
+            <li class="success">Model has correct table name</li>
+            <li class="success">Model has correct primary key</li>
+            <li class="success">Model has correct return type</li>
+            <li class="success">Model has validation rules</li>
+            <li class="success">Model validation rules are configured</li>
+            <li class="success">Model validation messages are configured</li>
+            <li class="success">Model has allowed fields</li>
+            <li class="success">Model has use timestamps</li>
+            <li class="success">Insert valid author</li>
+            <li class="success">Insert duplicate author</li>
+            <li class="success">Insert invalid author</li>
+            <li class="success">Find author by id</li>
+            <li class="success">Find non existent author</li>
+            <li class="success">Find all authors</li>
+            <li class="success">Update author</li>
+            <li class="success">Update with duplicate name</li>
+            <li class="success">Delete author</li>
+            <li class="success">Delete non existent author</li>
+            <li class="success">Validation with invalid characters</li>
+            <li class="success">Validation with too long name</li>
+            <li class="defect">Order by name</li>
+        </ul>
+        <h2>Book Controller (Tests\Unit\BookController)</h2>
+        <ul>
+            <li class="success">Index returns view with books</li>
+            <li class="success">Create get returns view</li>
+            <li class="success">Create post valid data</li>
+            <li class="success">Create post invalid data</li>
+            <li class="success">Edit get valid id</li>
+            <li class="success">Edit get invalid id</li>
+            <li class="success">Edit post valid data</li>
+            <li class="success">Edit post invalid data</li>
+            <li class="success">Delete valid id</li>
+            <li class="success">Delete invalid id</li>
+            <li class="success">Get book valid id</li>
+            <li class="success">Get book invalid id</li>
+        </ul>
+        <h2>Book Model (Tests\Unit\BookModel)</h2>
+        <ul>
+            <li class="success">Model can be instantiated</li>
+            <li class="success">Model has correct table name</li>
+            <li class="success">Model has correct primary key</li>
+            <li class="success">Model has correct return type</li>
+            <li class="success">Model has validation rules</li>
+            <li class="success">Model has allowed fields</li>
+            <li class="success">Model has use timestamps</li>
+            <li class="success">Insert valid book</li>
+            <li class="success">Insert book with all fields</li>
+            <li class="success">Insert invalid book</li>
+            <li class="success">Insert book without required value</li>
+            <li class="success">Find book by id</li>
+            <li class="success">Find non existent book</li>
+            <li class="success">Find all books</li>
+            <li class="success">Update book</li>
+            <li class="success">Delete book</li>
+            <li class="defect">Get books with relations</li>
+            <li class="success">Get book with relations</li>
+            <li class="success">Get book with relations non existent</li>
+            <li class="success">Validation with invalid title</li>
+            <li class="success">Validation with invalid value</li>
+            <li class="success">Validation with invalid characters</li>
+        </ul>
+        <h2>Health</h2>
+        <ul>
+            <li class="success">Is defined app path</li>
+            <li class="success">Base url has been set</li>
+        </ul>
+        <h2>Report Controller (Tests\Unit\ReportController)</h2>
+        <ul>
+            <li class="success">Index returns view with report data</li>
+            <li class="defect">Export excel generates excel file</li>
+            <li class="success">Get consolidated report returns array</li>
+            <li class="defect">Get consolidated report with data</li>
+            <li class="defect">Export excel with data</li>
+            <li class="defect">Export excel empty data</li>
+        </ul>
+        <h2>Subject Controller (Tests\Unit\SubjectController)</h2>
+        <ul>
+            <li class="success">Index returns view with subjects</li>
+            <li class="defect">Create get returns view</li>
+            <li class="defect">Create post valid data</li>
+            <li class="defect">Create post invalid data</li>
+            <li class="defect">Create post duplicate description</li>
+            <li class="defect">Edit get valid id</li>
+            <li class="success">Edit get invalid id</li>
+            <li class="defect">Edit post valid data</li>
+            <li class="defect">Edit post invalid data</li>
+            <li class="success">Delete valid id</li>
+            <li class="success">Delete invalid id</li>
+            <li class="success">Delete subject with books</li>
+        </ul>
+        <h2>Subject Model (Tests\Unit\SubjectModel)</h2>
+        <ul>
+            <li class="success">Model can be instantiated</li>
+            <li class="success">Model has correct table name</li>
+            <li class="success">Model has correct primary key</li>
+            <li class="success">Model has correct return type</li>
+            <li class="success">Model has validation rules</li>
+            <li class="success">Model has allowed fields</li>
+            <li class="success">Model has use timestamps</li>
+            <li class="success">Insert valid subject</li>
+            <li class="success">Insert duplicate subject</li>
+            <li class="success">Insert invalid subject</li>
+            <li class="success">Find subject by id</li>
+            <li class="success">Find non existent subject</li>
+            <li class="success">Find all subjects</li>
+            <li class="defect">Update subject</li>
+            <li class="success">Update with duplicate description</li>
+            <li class="success">Delete subject</li>
+            <li class="defect">Delete subject with books</li>
+            <li class="success">Delete non existent subject</li>
+            <li class="success">Validation with invalid characters</li>
+            <li class="success">Validation with too long description</li>
+            <li class="defect">Order by description</li>
         </ul>
     </body>
 </html>

@@ -1,3 +1,132 @@
+Example Database
+ [x] Model find all
+ [x] Soft delete leaves row
+
+Example Session
+ [x] Session simple
+
 Author Controller (Tests\Unit\AuthorController)
  [x] Index returns view with authors
+ [x] Create get returns view
+ [x] Create post valid data
+ [x] Create post invalid data
+ [x] Create post duplicate name
+ [x] Edit get valid id
+ [x] Edit get invalid id
+ [x] Edit post valid data
+ [x] Edit post invalid data
+ [x] Delete valid id
+ [x] Delete invalid id
+ [x] Delete author with books
+
+Author Model (Tests\Unit\AuthorModel)
+ [x] Model can be instantiated
+ [x] Model has correct table name
+ [x] Model has correct primary key
+ [x] Model has correct return type
+ [x] Model has validation rules
+ [x] Model validation rules are configured
+ [x] Model validation messages are configured
+ [x] Model has allowed fields
+ [x] Model has use timestamps
+ [x] Insert valid author
+ [x] Insert duplicate author
+ [x] Insert invalid author
+ [x] Find author by id
+ [x] Find non existent author
+ [x] Find all authors
+ [x] Update author
+ [x] Update with duplicate name
+ [x] Delete author
+ [x] Delete non existent author
+ [x] Validation with invalid characters
+ [x] Validation with too long name
+ [ ] Order by name
+
+Book Controller (Tests\Unit\BookController)
+ [x] Index returns view with books
+ [x] Create get returns view
+ [x] Create post valid data
+ [x] Create post invalid data
+ [x] Edit get valid id
+ [x] Edit get invalid id
+ [x] Edit post valid data
+ [x] Edit post invalid data
+ [x] Delete valid id
+ [x] Delete invalid id
+ [x] Get book valid id
+ [x] Get book invalid id
+
+Book Model (Tests\Unit\BookModel)
+ [x] Model can be instantiated
+ [x] Model has correct table name
+ [x] Model has correct primary key
+ [x] Model has correct return type
+ [x] Model has validation rules
+ [x] Model has allowed fields
+ [x] Model has use timestamps
+ [x] Insert valid book
+ [x] Insert book with all fields
+ [x] Insert invalid book
+ [x] Insert book without required value
+ [x] Find book by id
+ [x] Find non existent book
+ [x] Find all books
+ [x] Update book
+ [x] Delete book
+ [ ] Get books with relations
+ [x] Get book with relations
+ [x] Get book with relations non existent
+ [x] Validation with invalid title
+ [x] Validation with invalid value
+ [x] Validation with invalid characters
+
+Health
+ [x] Is defined app path
+ [x] Base url has been set
+
+Report Controller (Tests\Unit\ReportController)
+ [x] Index returns view with report data
+ [ ] Export excel generates excel file
+ [x] Get consolidated report returns array
+ [ ] Get consolidated report with data
+ [ ] Export excel with data
+ [ ] Export excel empty data
+
+Subject Controller (Tests\Unit\SubjectController)
+ [x] Index returns view with subjects
+ [ ] Create get returns view
+ [ ] Create post valid data
+ [ ] Create post invalid data
+ [ ] Create post duplicate description
+ [ ] Edit get valid id
+ [x] Edit get invalid id
+ [ ] Edit post valid data
+ [ ] Edit post invalid data
+ [x] Delete valid id
+ [x] Delete invalid id
+ [x] Delete subject with books
+
+Subject Model (Tests\Unit\SubjectModel)
+ [x] Model can be instantiated
+ [x] Model has correct table name
+ [x] Model has correct primary key
+ [x] Model has correct return type
+ [x] Model has validation rules
+ [x] Model has allowed fields
+ [x] Model has use timestamps
+ [x] Insert valid subject
+ [x] Insert duplicate subject
+ [x] Insert invalid subject
+ [x] Find subject by id
+ [x] Find non existent subject
+ [x] Find all subjects
+ [ ] Update subject
+ [x] Update with duplicate description
+ [x] Delete subject
+ [ ] Delete subject with books
+ [x] Delete non existent subject
+ [x] Validation with invalid characters
+ [x] Validation with too long description
+ [ ] Order by description
 
