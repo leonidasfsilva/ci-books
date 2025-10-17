@@ -194,4 +194,31 @@ class BookController extends BaseController
 
         return $this->response->setJSON($book);
     }
+
+    public function errorMsg()
+    {
+        // Método de teste para validação de mensagens de erro
+        $rules = [
+            'titulo' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
+            'editora' => 'required|min_length[1]|max_length[40]|regex_match[/^[a-zA-ZÀ-ÿ0-9\s\-.\'&]+$/]',
+            'edicao' => 'required|integer|greater_than[0]',
+            'ano_publicacao' => 'required|exact_length[4]|regex_match[/^\d{4}$/]',
+            'valor' => 'required|decimal|greater_than[0]',
+            'authors' => 'required',
+            'subjects' => 'required',
+        ];
+
+        if (!$this->validate($rules)) {
+            $errors = $this->validator->getErrors();
+            return $this->response->setJSON([
+                'success' => false,
+                'errors' => $errors
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Validação passou!'
+        ]);
+    }
 }
