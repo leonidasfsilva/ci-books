@@ -136,15 +136,6 @@ composer test
 
 **Nota**: Os testes usam SQLite em memória para isolamento e velocidade. Alguns testes podem ser pulados se houver limitações específicas do ambiente de teste, mas todos os testes críticos passam com sucesso.
 
-### Endpoints de Teste
-
-O projeto inclui endpoints especiais para testar validações:
-
-- `/books/errorMsg` - Testa mensagens de erro de validação
-- `/books/successMsg` - Testa mensagens de sucesso
-
-Ambos suportam GET (visualização) e POST (simulação de operações).
-
 ## Tecnologias Utilizadas
 
 - **Backend**: CodeIgniter 4 (PHP Framework)
