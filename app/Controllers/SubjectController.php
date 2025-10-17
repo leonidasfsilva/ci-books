@@ -44,7 +44,21 @@ class SubjectController extends BaseController
                     return redirect()->back()->withInput()->with('error', 'Erro ao criar assunto: ' . $e->getMessage());
                 }
             } else {
-                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+                $errors = $this->validator->getErrors();
+
+                // Personalizar mensagens de erro
+                $customErrors = [];
+                foreach ($errors as $field => $message) {
+                    switch ($field) {
+                        case 'Descricao':
+                            $customErrors[$field] = 'O campo Descrição é obrigatório.';
+                            break;
+                        default:
+                            $customErrors[$field] = $message;
+                    }
+                }
+
+                return redirect()->back()->withInput()->with('errors', $customErrors);
             }
         }
 
@@ -76,7 +90,21 @@ class SubjectController extends BaseController
                     return redirect()->back()->withInput()->with('error', 'Erro ao atualizar assunto: ' . $e->getMessage());
                 }
             } else {
-                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+                $errors = $this->validator->getErrors();
+
+                // Personalizar mensagens de erro
+                $customErrors = [];
+                foreach ($errors as $field => $message) {
+                    switch ($field) {
+                        case 'Descricao':
+                            $customErrors[$field] = 'O campo Descrição é obrigatório.';
+                            break;
+                        default:
+                            $customErrors[$field] = $message;
+                    }
+                }
+
+                return redirect()->back()->withInput()->with('errors', $customErrors);
             }
         }
 

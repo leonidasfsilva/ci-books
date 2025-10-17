@@ -44,7 +44,21 @@ class AuthorController extends BaseController
                     return redirect()->back()->withInput()->with('error', 'Erro ao criar autor: ' . $e->getMessage());
                 }
             } else {
-                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+                $errors = $this->validator->getErrors();
+
+                // Personalizar mensagens de erro
+                $customErrors = [];
+                foreach ($errors as $field => $message) {
+                    switch ($field) {
+                        case 'Nome':
+                            $customErrors[$field] = 'O campo Nome é obrigatório.';
+                            break;
+                        default:
+                            $customErrors[$field] = $message;
+                    }
+                }
+
+                return redirect()->back()->withInput()->with('errors', $customErrors);
             }
         }
 
@@ -76,7 +90,21 @@ class AuthorController extends BaseController
                     return redirect()->back()->withInput()->with('error', 'Erro ao atualizar autor: ' . $e->getMessage());
                 }
             } else {
-                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+                $errors = $this->validator->getErrors();
+
+                // Personalizar mensagens de erro
+                $customErrors = [];
+                foreach ($errors as $field => $message) {
+                    switch ($field) {
+                        case 'Nome':
+                            $customErrors[$field] = 'O campo Nome é obrigatório.';
+                            break;
+                        default:
+                            $customErrors[$field] = $message;
+                    }
+                }
+
+                return redirect()->back()->withInput()->with('errors', $customErrors);
             }
         }
 
