@@ -131,8 +131,8 @@
                       errorMessages.map(msg => '<li>' + msg + '</li>').join('') +
                       '</ul>',
                 icon: 'error',
-                confirmButtonText: 'Entendi',
-                confirmButtonColor: '#dc3545',
+                showConfirmButton: false,
+                showCloseButton: true,
                 customClass: {
                     popup: 'swal-wide'
                 }
