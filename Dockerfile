@@ -59,6 +59,12 @@ EXPOSE 80
 
 # Create startup script
 RUN echo '#!/bin/bash\n\
+# Wait for MySQL to be ready\n\
+until mysqladmin ping -h mysql -u root -proot --silent; do\n\
+    echo "Waiting for MySQL..."\n\
+    sleep 2\n\
+done\n\
+\n\
 # Run database migrations\n\
 php spark migrate\n\
 \n\
