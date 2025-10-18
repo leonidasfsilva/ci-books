@@ -71,5 +71,12 @@ php spark db:seed CreateSampleData\n\
 apache2-foreground' > /usr/local/bin/start.sh \
     && chmod +x /usr/local/bin/start.sh
 
+# Expose port 80
+EXPOSE 80
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost/ || exit 1
+
 # Start the application
 CMD ["/usr/local/bin/start.sh"]
