@@ -62,30 +62,43 @@ Container started at: $(date)"\n\
 \n\
 # Wait for MySQL to be ready\n\
 echo "Waiting for MySQL..."\n\
-timeout=60\n\
+timeout=30\n\
 counter=0\n\
-while ! mysqladmin ping -h mysql -u root -proot --silent; do\n\
+while ! nc -z mysql 3306; do\n\
     counter=$((counter + 1))\n\
     if [ $counter -gt $timeout ]; then\n\
         echo "ERROR: MySQL did not respond within ${timeout} seconds"\n\
         exit 1\n\
     fi\n\
-    echo "Attempt $counter/$timeout: MySQL not ready yet..."\n\
+    echo "Attempt $counter/$timeout: MySQL port not open yet..."\n\
     sleep 1\n\
 done\n\
-echo "✅ MySQL is ready!"\n\
+echo "✅ MySQL port is open!"\n\
+\n\
+# Additional wait for MySQL to be fully ready\n\
+sleep 3\n\
 \n\
 # Test database connection\n\
 echo "Testing database connection..."\n\
-php -r "\n\
-try {\n\
-    \$pdo = new PDO('\''mysql:host=mysql;dbname=books_management_ci4'\'', '\''root'\'', '\''root'\'');\n\
-    echo \"✅ Database connection successful\\n\";\n\
-} catch (Exception \$e) {\n\
-    echo \"❌ Database connection failed: \" . \$e->getMessage() . \"\\n\";\n\
-    exit(1);\n\
-}\n\
-"\n\
+for i in {1..10}; do\n\
+    if php -r "\n\
+        try {\n\
+            \$pdo = new PDO('\''mysql:host=mysql;dbname=books_management_ci4'\'', '\''root'\'', '\''root'\'');\n\
+            echo \"✅ Database connection successful\\n\";\n\
+            exit(0);\n\
+        } catch (Exception \$e) {\n\
+            echo \"Attempt $i: Database connection failed: \" . \$e->getMessage() . \"\\n\";\n\
+            exit(1);\n\
+        }\n\
+    "; then\n\
+        break\n\
+    fi\n\
+    if [ $i -eq 10 ]; then\n\
+        echo "❌ Database connection failed after 10 attempts"\n\
+        exit 1\n\
+    fi\n\
+    sleep 2\n\
+done\n\
 \n\
 # Run database migrations\n\
 echo "Running migrations..."\n\
