@@ -29,6 +29,7 @@ RUN if [ -f .env ]; then \
         # Ensure Docker-specific settings \
         sed -i 's|database\.default\.hostname = .*|database.default.hostname = mysql|' .env; \
         sed -i 's|app\.baseURL = .*|app.baseURL = '\''http://localhost:8080/'\''|' .env; \
+        sed -i 's|cache\.handler = .*|cache.handler = dummy|' .env; \
     else \
         echo "Creating .env from template"; \
         cp env .env && \
@@ -39,7 +40,8 @@ RUN if [ -f .env ]; then \
         sed -i 's|# database\.default\.password = root|database.default.password = root|' .env && \
         sed -i 's|# database\.default\.DBDriver = MySQLi|database.default.DBDriver = MySQLi|' .env && \
         sed -i 's|# database\.default\.DBPrefix =|database.default.DBPrefix =|' .env && \
-        sed -i 's|# database\.default\.port = 3306|database.default.port = 3306|' .env; \
+        sed -i 's|# database\.default\.port = 3306|database.default.port = 3306|' .env && \
+        echo -e "\n# Cache\ncache.handler = dummy" >> .env; \
     fi
 
 # Install PHP dependencies
