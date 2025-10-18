@@ -7,8 +7,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:80"
-    volumes:
-      - .:/var/www/html:cached
     environment:
       - CI_ENVIRONMENT=development
       - database.default.hostname=mysql
