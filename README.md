@@ -2,7 +2,7 @@
 
 Este é um sistema de gerenciamento de livros desenvolvido com CodeIgniter 4, permitindo o cadastro de livros, autores e assuntos.
 
-## 🛠️ Stack Tecnológica
+## 🛠️ Stack do Projeto
 
 - **Backend**: CodeIgniter 4 (PHP Framework)
 - **Frontend**: Bootstrap 5, Font Awesome, SweetAlert2
@@ -82,6 +82,25 @@ A aplicação será automaticamente configurada com:
 
 ```bash
 docker-compose down
+```
+
+#### 5. Comandos Úteis
+
+```bash
+# Parar os containers
+docker-compose down
+
+# Reconstruir após mudanças no Dockerfile
+docker-compose up -d --build
+
+# Limpar tudo (containers, imagens, volumes) - use com cuidado
+docker-compose down --rmi all --volumes
+
+# Ver logs
+docker-compose logs -f app
+
+# Acessar container
+docker-compose exec app bash
 ```
 
 ### Opção 2: Ambiente Local (Tradicional)
