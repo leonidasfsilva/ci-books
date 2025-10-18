@@ -75,7 +75,7 @@ apache2-foreground' > /usr/local/bin/start.sh \
 EXPOSE 80
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=5 \
     CMD curl -f http://localhost/ || exit 1
 
 # Start the application
