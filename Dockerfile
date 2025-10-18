@@ -67,8 +67,7 @@ VOLUME ["/var/www/html/writable"]
 # Create startup script
 RUN echo '#!/bin/bash\n\
 # Fix writable permissions after volume mount\n\
-chown -R www-data:www-data writable\n\
-chmod -R 755 writable\n\
+chmod -R 777 writable\n\
 \n\
 # Run database migrations\n\
 php spark migrate\n\
