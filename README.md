@@ -59,6 +59,10 @@ cd ci-books
 #### 2. Iniciar com Docker
 
 ```bash
+# Se você já tem containers/imagens antigas, limpe-as primeiro:
+docker-compose down
+docker system prune -f  # Remove imagens não utilizadas (opcional)
+
 # Construir e iniciar todos os serviços
 docker-compose up -d
 
