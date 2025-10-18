@@ -41,7 +41,7 @@ RUN if [ -f .env ]; then \
         sed -i 's|# database\.default\.DBDriver = MySQLi|database.default.DBDriver = MySQLi|' .env && \
         sed -i 's|# database\.default\.DBPrefix =|database.default.DBPrefix =|' .env && \
         sed -i 's|# database\.default\.port = 3306|database.default.port = 3306|' .env && \
-        echo -e "\n# Cache\ncache.handler = file" >> .env; \
+        echo -e "\n# Cache\ncache.handler = dummy" >> .env; \
     fi
 
 # Install PHP dependencies
