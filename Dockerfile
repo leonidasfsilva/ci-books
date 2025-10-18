@@ -66,24 +66,16 @@ VOLUME ["/var/www/html/writable"]
 
 # Create startup script
 RUN echo '#!/bin/bash\n\
-echo "=== Starting application ===\n\
 # Fix writable permissions after volume mount\n\
-echo "Setting permissions..."\n\
 chmod -R 777 writable\n\
-echo "Permissions set"\n\
 \n\
 # Run database migrations\n\
-echo "Running migrations..."\n\
 php spark migrate\n\
-echo "Migrations done"\n\
 \n\
 # Run database seeds\n\
-echo "Running seeds..."\n\
 php spark db:seed CreateSampleData\n\
-echo "Seeds done"\n\
 \n\
 # Start Apache\n\
-echo "Starting Apache..."\n\
 apache2-foreground' > /usr/local/bin/start.sh \
     && chmod +x /usr/local/bin/start.sh
 
