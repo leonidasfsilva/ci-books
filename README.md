@@ -78,13 +78,7 @@ A aplicação será automaticamente configurada com:
 - ✅ Diretórios writable configurados
 - ✅ Servidor web Apache rodando
 
-#### 4. Parar os Containers
-
-```bash
-docker-compose down
-```
-
-#### 5. Comandos Úteis
+#### 4. Comandos Úteis
 
 ```bash
 # Parar os containers
