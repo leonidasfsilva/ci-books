@@ -60,3 +60,6 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
 </Directory>' >> /etc/apache2/apache2.conf
 
 EXPOSE 80
+
+# Define volumes for Docker Compose compatibility
+VOLUME ["/var/www/html/writable"]
