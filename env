@@ -30,13 +30,13 @@ app.baseURL = 'https://ci-books.localhost/'
 # DATABASE
 #--------------------------------------------------------------------
 
-database.default.hostname = mysql
-database.default.database = books_management_ci4
-database.default.username = root
-database.default.password = root
-database.default.DBDriver = MySQLi
-database.default.DBPrefix =
-database.default.port = 3306
+# database.default.hostname = mysql
+# database.default.database = books_management_ci4
+# database.default.username = root
+# database.default.password = root
+# database.default.DBDriver = MySQLi
+# database.default.DBPrefix =
+# database.default.port = 3306
 
 # database.tests.hostname = localhost
 # database.tests.database = ci4_test

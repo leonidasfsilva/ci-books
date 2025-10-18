@@ -24,7 +24,14 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 # Setup .env file for Docker
-RUN cp env .env
+RUN cp env .env && \
+    sed -i 's|# database\.default\.hostname = localhost|database.default.hostname = mysql|' .env && \
+    sed -i 's|# database\.default\.database = ci4|database.default.database = books_management_ci4|' .env && \
+    sed -i 's|# database\.default\.username = root|database.default.username = root|' .env && \
+    sed -i 's|# database\.default\.password = root|database.default.password = root|' .env && \
+    sed -i 's|# database\.default\.DBDriver = MySQLi|database.default.DBDriver = MySQLi|' .env && \
+    sed -i 's|# database\.default\.DBPrefix =|database.default.DBPrefix =|' .env && \
+    sed -i 's|# database\.default\.port = 3306|database.default.port = 3306|' .env
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
