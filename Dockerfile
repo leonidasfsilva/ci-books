@@ -55,20 +55,47 @@ EXPOSE 80
 
 # Create startup script
 RUN echo '#!/bin/bash\n\
+set -e\n\
+\n\
+echo "=== Starting CI-Books Application ===\n\
+Container started at: $(date)"\n\
+\n\
 # Wait for MySQL to be ready\n\
 echo "Waiting for MySQL..."\n\
-until mysqladmin ping -h mysql -u root -proot --silent; do\n\
-    sleep 2\n\
+timeout=60\n\
+counter=0\n\
+while ! mysqladmin ping -h mysql -u root -proot --silent; do\n\
+    counter=$((counter + 1))\n\
+    if [ $counter -gt $timeout ]; then\n\
+        echo "ERROR: MySQL did not respond within ${timeout} seconds"\n\
+        exit 1\n\
+    fi\n\
+    echo "Attempt $counter/$timeout: MySQL not ready yet..."\n\
+    sleep 1\n\
 done\n\
-echo "MySQL is ready!"\n\
+echo "✅ MySQL is ready!"\n\
+\n\
+# Test database connection\n\
+echo "Testing database connection..."\n\
+php -r "\n\
+try {\n\
+    \$pdo = new PDO('mysql:host=mysql;dbname=books_management_ci4', 'root', 'root');\n\
+    echo \"✅ Database connection successful\\n\";\n\
+} catch (Exception \$e) {\n\
+    echo \"❌ Database connection failed: \" . \$e->getMessage() . \"\\n\";\n\
+    exit(1);\n\
+}\n\
+"\n\
 \n\
 # Run database migrations\n\
 echo "Running migrations..."\n\
 php spark migrate\n\
+echo "✅ Migrations completed"\n\
 \n\
 # Run database seeds\n\
 echo "Running seeds..."\n\
 php spark db:seed CreateSampleData\n\
+echo "✅ Seeds completed"\n\
 \n\
 echo "Starting Apache..."\n\
 # Start Apache\n\
