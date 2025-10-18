@@ -4,21 +4,28 @@ Este é um sistema de gerenciamento de livros desenvolvido com CodeIgniter 4, pe
 
 ## Pré-requisitos
 
-### Versões do PHP
+### Opção 1: Docker (Recomendado - mais fácil)
+
+- Docker e Docker Compose instalados
+- Isso é tudo! O ambiente completo será configurado automaticamente.
+
+### Opção 2: Ambiente Local
+
+#### Versões do PHP
 
 - **Versão Mínima**: PHP 7.4.0
 - **Versão Recomendada**: PHP 8.3.x (para melhor performance e recursos modernos)
 
 **Nota**: O projeto foi desenvolvido e testado com PHP 8.3.26. Versões anteriores à 7.4 não são suportadas.
 
-### Outros Requisitos
+#### Outros Requisitos
 
 - Composer
 - Node.js e npm (opcional, apenas para desenvolvimento frontend)
 - MySQL/MariaDB
 - Servidor web (Apache/Nginx) ou ambiente local como Laragon/XAMPP
 
-### Ambiente de Desenvolvimento Recomendado
+#### Ambiente de Desenvolvimento Recomendado
 
 Se você não possui nenhuma stack de desenvolvimento web/PHP instalada na máquina, **recomendamos fortemente o uso do Laragon**:
 
@@ -30,14 +37,53 @@ Alternativas: XAMPP, WAMP, MAMP ou Docker.
 
 ## Instalação e Configuração
 
-### 1. Clonar o Repositório
+### Opção 1: Docker (Recomendado - mais rápido e confiável)
+
+#### 1. Clonar o Repositório
 
 ```bash
 git clone https://github.com/leonidasfsilva/ci-books.git ci-books
 cd ci-books
 ```
 
-### 2. Instalar Dependências
+#### 2. Iniciar com Docker
+
+```bash
+# Construir e iniciar todos os serviços
+docker-compose up -d
+
+# Verificar se os containers estão rodando
+docker-compose ps
+```
+
+#### 3. Acessar a Aplicação
+
+- **Aplicação**: http://localhost:8080
+- **phpMyAdmin**: http://localhost:8081 (usuario: root, senha: root)
+
+A aplicação será automaticamente configurada com:
+- ✅ Banco de dados MySQL criado
+- ✅ Migrações executadas
+- ✅ Dados de exemplo inseridos
+- ✅ Diretórios writable configurados
+- ✅ Servidor web Apache rodando
+
+#### 4. Parar os Containers
+
+```bash
+docker-compose down
+```
+
+### Opção 2: Ambiente Local (Tradicional)
+
+#### 1. Clonar o Repositório
+
+```bash
+git clone https://github.com/leonidasfsilva/ci-books.git ci-books
+cd ci-books
+```
+
+#### 2. Instalar Dependências
 
 ```bash
 # Instalar dependências PHP
@@ -47,7 +93,7 @@ composer install
 npm install
 ```
 
-### 3. Configurar o Ambiente
+#### 3. Configurar o Ambiente
 
 Copie o arquivo `env` para `.env`:
 
@@ -78,18 +124,18 @@ database.default.port = 3306
 app.baseURL = 'http://localhost/ci-books/public'
 ```
 
-### 4. Criar Diretórios Necessários
+#### 4. Criar Diretórios Necessários
 
 Execute o script de configuração específico do seu sistema operacional para criar os diretórios obrigatórios do CodeIgniter e ajustar permissões:
 
-#### Windows
+##### Windows
 
 ```cmd
 # Command Prompt
 setup.bat
 ```
 
-#### Linux/macOS
+##### Linux/macOS
 
 ```bash
 # Tornar o script executável (primeira vez apenas)
@@ -101,11 +147,11 @@ chmod +x setup.sh
 
 Estes scripts criam automaticamente os diretórios necessários em `writable/` (cache, logs, sessions, uploads, debugbar) e ajustam as permissões apropriadas para o sistema operacional.
 
-### 5. Criar o Banco de Dados
+#### 5. Criar o Banco de Dados
 
 Crie um banco de dados MySQL chamado `books_management_ci4`.
 
-### 6. Executar Migrações (Recomendado)
+#### 6. Executar Migrações (Recomendado)
 
 Execute as migrações e seeds do CodeIgniter para configurar o banco de dados:
 
@@ -116,15 +162,15 @@ php spark db:seed CreateSampleData
 
 **Alternativa**: Você pode executar o script SQL localizado em `documentation/modelagem.sql` diretamente no MySQL para criar as tabelas e inserir dados de exemplo, mas o método recomendado é usar as migrações do CodeIgniter.
 
-### 7. Configurar o Servidor Web
+#### 7. Configurar o Servidor Web
 
-#### Opção 1: Usando Laragon (Recomendado)
+##### Opção 1: Usando Laragon (Recomendado)
 
 1. Certifique-se de que o Laragon está instalado e rodando
 2. Adicione o projeto à pasta `www` do Laragon
 3. Configure o virtual host para apontar para a pasta `public` do projeto
 
-#### Opção 2: Usando Apache/Nginx
+##### Opção 2: Usando Apache/Nginx
 
 Configure seu servidor web para apontar o document root para a pasta `public` do projeto.
 
@@ -134,7 +180,7 @@ Exemplo para Apache (.htaccess já incluído):
 DocumentRoot "/caminho/para/ci-books/public"
 ```
 
-#### Opção 3: Usando o servidor embutido do PHP
+##### Opção 3: Usando o servidor embutido do PHP
 
 ```bash
 php spark serve
@@ -142,7 +188,7 @@ php spark serve
 
 A aplicação estará disponível em `http://localhost:8080`
 
-### 8. Verificar a Instalação
+#### 8. Verificar a Instalação
 
 Acesse `http://localhost/ci-books/public` (ou a URL configurada) no seu navegador.
 

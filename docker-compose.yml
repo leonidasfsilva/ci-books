@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - /var/www/html/vendor
+      - /var/www/html/writable
+    environment:
+      - CI_ENVIRONMENT=development
+      - database.default.hostname=mysql
+      - database.default.database=books_management_ci4
+      - database.default.username=root
+      - database.default.password=root
+      - database.default.DBDriver=MySQLi
+      - database.default.port=3306
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - ci-books-network
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: books_management_ci4
+      MYSQL_USER: ci4_user
+      MYSQL_PASSWORD: ci4_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    networks:
+      - ci-books-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - ci-books-network
+
+volumes:
+  mysql_data:
+
+networks:
+  ci-books-network:
+    driver: bridge
