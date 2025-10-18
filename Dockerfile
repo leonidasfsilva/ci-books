@@ -56,17 +56,21 @@ EXPOSE 80
 # Create startup script
 RUN echo '#!/bin/bash\n\
 # Wait for MySQL to be ready\n\
+echo "Waiting for MySQL..."\n\
 until mysqladmin ping -h mysql -u root -proot --silent; do\n\
-    echo "Waiting for MySQL..."\n\
     sleep 2\n\
 done\n\
+echo "MySQL is ready!"\n\
 \n\
 # Run database migrations\n\
+echo "Running migrations..."\n\
 php spark migrate\n\
 \n\
 # Run database seeds\n\
+echo "Running seeds..."\n\
 php spark db:seed CreateSampleData\n\
 \n\
+echo "Starting Apache..."\n\
 # Start Apache\n\
 apache2-foreground' > /usr/local/bin/start.sh \
     && chmod +x /usr/local/bin/start.sh
