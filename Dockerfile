@@ -25,6 +25,7 @@ COPY . /var/www/html
 
 # Setup .env file for Docker
 RUN cp env .env && \
+    sed -i 's|app\.baseURL = '\''https://ci-books\.localhost/'\''|app.baseURL = '\''http://localhost:8080/'\''|' .env && \
     sed -i 's|# database\.default\.hostname = localhost|database.default.hostname = mysql|' .env && \
     sed -i 's|# database\.default\.database = ci4|database.default.database = books_management_ci4|' .env && \
     sed -i 's|# database\.default\.username = root|database.default.username = root|' .env && \
