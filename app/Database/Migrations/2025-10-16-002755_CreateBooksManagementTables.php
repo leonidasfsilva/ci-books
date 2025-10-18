@@ -8,7 +8,7 @@ class CreateBooksManagementTables extends Migration
 {
     public function up()
     {
-        if (!$this->db->tableExists('Livro')) {
+        if (!$this->db->tableExists('Livro', false)) {
             $this->forge->addField([
                 'CodL' => [
                     'type'           => 'INT',
@@ -43,7 +43,7 @@ class CreateBooksManagementTables extends Migration
             $this->forge->createTable('Livro');
         }
 
-        if (!$this->db->tableExists('Autor')) {
+        if (!$this->db->tableExists('Autor', false)) {
             $this->forge->addField([
                 'CodAu' => [
                     'type'           => 'INT',
@@ -59,7 +59,7 @@ class CreateBooksManagementTables extends Migration
             $this->forge->createTable('Autor');
         }
 
-        if (!$this->db->tableExists('Assunto')) {
+        if (!$this->db->tableExists('Assunto', false)) {
             $this->forge->addField([
                 'codAs' => [
                     'type'           => 'INT',
@@ -75,7 +75,7 @@ class CreateBooksManagementTables extends Migration
             $this->forge->createTable('Assunto');
         }
 
-        if (!$this->db->tableExists('Livro_Autor')) {
+        if (!$this->db->tableExists('Livro_Autor', false)) {
             $this->forge->addField([
                 'Livro_CodL' => [
                     'type'       => 'INT',
@@ -92,7 +92,7 @@ class CreateBooksManagementTables extends Migration
             $this->forge->createTable('Livro_Autor');
         }
 
-        if (!$this->db->tableExists('Livro_Assunto')) {
+        if (!$this->db->tableExists('Livro_Assunto', false)) {
             $this->forge->addField([
                 'Livro_CodL' => [
                     'type'       => 'INT',
