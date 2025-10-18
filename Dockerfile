@@ -23,6 +23,9 @@ WORKDIR /var/www/html
 # Copy application files
 COPY . /var/www/html
 
+# Setup .env file for Docker
+RUN cp env .env
+
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
