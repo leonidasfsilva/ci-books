@@ -29,7 +29,7 @@ RUN if [ -f .env ]; then \
         # Ensure Docker-specific settings \
         sed -i 's|database\.default\.hostname = .*|database.default.hostname = mysql|' .env; \
         sed -i 's|app\.baseURL = .*|app.baseURL = '\''http://localhost:8080/'\''|' .env; \
-        sed -i 's|cache\.handler = .*|cache.handler = file|' .env; \
+        sed -i 's|cache\.handler = .*|cache.handler = dummy|' .env; \
     else \
         echo "Creating .env from template"; \
         cp env .env && \
