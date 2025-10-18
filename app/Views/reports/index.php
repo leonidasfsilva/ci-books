@@ -16,8 +16,8 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Autor</th>
                             <th>Livro</th>
+                            <th>Autor</th>
                             <th>Descrição</th>
                             <th>Ano de Publicação</th>
                             <th>Assuntos</th>
@@ -34,8 +34,8 @@
                             }
                         ?>
                             <tr>
-                                <td><?= $showAuthor ? esc($row['Autores']) : '' ?></td>
                                 <td><?= esc($row['Titulo']) ?></td>
+                                <td><?= $showAuthor ? esc($row['Autores']) : '' ?></td>
                                 <td>
                                     <?php if (!empty($row['Editora'])): ?>
                                         Editora: <?= esc($row['Editora']) ?><br>
