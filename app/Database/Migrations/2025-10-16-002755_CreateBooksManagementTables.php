@@ -110,25 +110,7 @@ class CreateBooksManagementTables extends Migration
         }
 
         if (!$this->db->query("SHOW TABLES LIKE 'vw_relatorio_consolidado'")->getRow()) {
-            $this->db->query("
-                CREATE VIEW vw_relatorio_consolidado AS
-                SELECT
-                    L.CodL,
-                    L.Titulo,
-                    L.Editora,
-                    L.Edicao,
-                    L.AnoPublicacao,
-                    L.Valor,
-                    GROUP_CONCAT(DISTINCT A.Nome ORDER BY A.Nome SEPARATOR ', ') as Autores,
-                    GROUP_CONCAT(DISTINCT S.Descricao ORDER BY S.Descricao SEPARATOR ', ') as Assuntos
-                FROM Livro L
-                LEFT JOIN Livro_Autor LA ON L.CodL = LA.Livro_CodL
-                LEFT JOIN Autor A ON LA.Autor_CodAu = A.CodAu
-                LEFT JOIN Livro_Assunto LS ON L.CodL = LS.Livro_CodL
-                LEFT JOIN Assunto S ON LS.Assunto_codAs = S.codAs
-                GROUP BY L.CodL, L.Titulo, L.Editora, L.Edicao, L.AnoPublicacao, L.Valor
-                ORDER BY L.Titulo
-            ");
+            $this->db->query("CREATE VIEW vw_relatorio_consolidado AS SELECT L.CodL, L.Titulo, L.Editora, L.Edicao, L.AnoPublicacao, L.Valor, GROUP_CONCAT(DISTINCT A.Nome ORDER BY A.Nome SEPARATOR ', ') as Autores, GROUP_CONCAT(DISTINCT S.Descricao ORDER BY S.Descricao SEPARATOR ', ') as Assuntos FROM Livro L LEFT JOIN Livro_Autor LA ON L.CodL = LA.Livro_CodL LEFT JOIN Autor A ON LA.Autor_CodAu = A.CodAu LEFT JOIN Livro_Assunto LS ON L.CodL = LS.Livro_CodL LEFT JOIN Assunto S ON LS.Assunto_codAs = S.codAs GROUP BY L.CodL, L.Titulo, L.Editora, L.Edicao, L.AnoPublicacao, L.Valor ORDER BY L.Titulo");
         }
     }
 

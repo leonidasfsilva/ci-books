@@ -193,11 +193,7 @@ class BookController extends BaseController
 
     public function errorMsg()
     {
-        // Método de teste para validação de mensagens de erro
-        // Suporta tanto GET (para visualização) quanto POST (para validação)
-
         if ($this->request->is('get')) {
-            // Retorna a view da listagem de livros para teste
             $data = [
                 'title' => 'Teste de Validação - Gerenciar Livros',
                 'books' => $this->bookModel->getBooksWithRelations(),
@@ -246,11 +242,7 @@ class BookController extends BaseController
 
     public function successMsg()
     {
-        // Método de teste para mensagens de sucesso
-        // Suporta tanto GET (para visualização) quanto POST (para simular sucesso)
-
         if ($this->request->is('get')) {
-            // Retorna a view da listagem de livros para teste
             $data = [
                 'title' => 'Teste de Mensagens de Sucesso - Gerenciar Livros',
                 'books' => $this->bookModel->getBooksWithRelations(),
@@ -270,10 +262,6 @@ class BookController extends BaseController
             return view('books/index', $data);
         }
 
-        // Método POST - simula uma operação bem-sucedida
-        // Em um cenário real, aqui seria a lógica de salvar dados
-
-        // Simula processamento bem-sucedido
         return redirect()->back()->with('success', 'Operação realizada com sucesso! Dados foram salvos corretamente.');
     }
 }

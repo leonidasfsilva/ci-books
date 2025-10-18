@@ -57,13 +57,9 @@ class BookModel extends Model
     protected $cleanValidationRules = true;
 
 
-    /**
-     * Get books with authors and subjects
-     */
     public function getBooksWithRelations()
     {
         if ($this->db->DBDriver === 'SQLite3') {
-            // SQLite doesn't support GROUP_CONCAT, so return basic data
             return $this->findAll();
         }
 
@@ -77,9 +73,6 @@ class BookModel extends Model
                     ->findAll();
     }
 
-    /**
-     * Get book with authors and subjects by ID
-     */
     public function getBookWithRelations($id)
     {
         $book = $this->select('Livro.*')

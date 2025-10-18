@@ -86,11 +86,7 @@ class ReportController extends BaseController
 
     private function getConsolidatedReport()
     {
-        $query = $this->db->query("
-            SELECT * FROM vw_relatorio_consolidado
-            ORDER BY Autores, Titulo
-        ");
-
+        $query = $this->db->query("SELECT * FROM vw_relatorio_consolidado ORDER BY Autores, Titulo");
         return $query->getResultArray();
     }
 }
