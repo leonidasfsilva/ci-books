@@ -9,8 +9,11 @@ services:
         restart: unless-stopped
         working_dir: /var/www/html
         volumes:
-            - ./:/var/www/html
-            - /var/www/html/vendor
+            - ./app:/var/www/html/app
+            - ./public:/var/www/html/public
+            - ./documentation:/var/www/html/documentation
+            - ./tests:/var/www/html/tests
+            - ./writable:/var/www/html/writable
         environment:
             - CI_ENVIRONMENT=development
         ports:
