@@ -1,51 +1,58 @@
-version: '3.9'
+version: "3.7"
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:80"
-    volumes:
-      - .:/var/www/html
-    environment:
-      - CI_ENVIRONMENT=development
-    depends_on:
-      - mysql
-    networks:
-      - ci-books-network
+    # image project
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        working_dir: /var/www/html
+        volumes:
+            - ./:/var/www/html
+        environment:
+            - CI_ENVIRONMENT=development
+        depends_on:
+            - mysql
+        networks:
+            - ci-books-network
 
-  mysql:
-    image: mysql:8.0
-    container_name: mysql
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: ${database.default.database:-books_management_ci4}
-      MYSQL_ROOT_PASSWORD: ${database.default.password:-root}
-      MYSQL_PASSWORD: ${database.default.password:-root}
-      MYSQL_USER: ${database.default.username:-root}
-    volumes:
-      - mysql_data:/var/lib/mysql
-    ports:
-      - "3306:3306"
-    networks:
-      - ci-books-network
+    # db mysql
+    mysql:
+        image: mysql:8.0
+        container_name: mysql
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: ${database.default.database:-books_management_ci4}
+            MYSQL_ROOT_PASSWORD: ${database.default.password:-root}
+            MYSQL_PASSWORD: ${database.default.password:-root}
+            MYSQL_USER: ${database.default.username:-root}
+        volumes:
+            - mysql_data:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        networks:
+            - ci-books-network
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - "8081:80"
-    environment:
-      PMA_HOST: mysql
-    depends_on:
-      - mysql
-    networks:
-      - ci-books-network
+    # phpMyAdmin
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        links:
+            - mysql
+        environment:
+            PMA_HOST: mysql
+        restart: always
+        ports:
+            - "8081:80"
+        depends_on:
+            - mysql
+        networks:
+            - ci-books-network
 
 volumes:
-  mysql_data:
+    mysql_data:
 
 networks:
-  ci-books-network:
-    driver: bridge
+    ci-books-network:
+        driver: bridge
