@@ -29,7 +29,7 @@ RUN if [ -f .env ]; then \
         # Ensure Docker-specific settings \
         sed -i 's|database\.default\.hostname = .*|database.default.hostname = mysql|' .env; \
         sed -i 's|app\.baseURL = .*|app.baseURL = '\''http://localhost:8080/'\''|' .env; \
-        sed -i 's|cache\.handler = .*|cache.handler = dummy|' .env; \
+        sed -i 's|cache\.handler = .*|cache.handler = file|' .env; \
     else \
         echo "Creating .env from template"; \
         cp env .env && \
@@ -41,7 +41,7 @@ RUN if [ -f .env ]; then \
         sed -i 's|# database\.default\.DBDriver = MySQLi|database.default.DBDriver = MySQLi|' .env && \
         sed -i 's|# database\.default\.DBPrefix =|database.default.DBPrefix =|' .env && \
         sed -i 's|# database\.default\.port = 3306|database.default.port = 3306|' .env && \
-        echo -e "\n# Cache\ncache.handler = dummy" >> .env; \
+        echo -e "\n# Cache\ncache.handler = file" >> .env; \
     fi
 
 # Install PHP dependencies
@@ -69,7 +69,8 @@ VOLUME ["/var/www/html/writable"]
 # Create startup script
 RUN echo '#!/bin/bash\n\
 # Fix writable permissions after volume mount\n\
-chmod -R 777 writable\n\
+chown -R www-data:www-data writable\n\
+chmod -R 755 writable\n\
 \n\
 # Run database migrations\n\
 php spark migrate\n\
