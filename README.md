@@ -2,6 +2,16 @@
 
 Este é um sistema de gerenciamento de livros desenvolvido com CodeIgniter 4, permitindo o cadastro de livros, autores e assuntos.
 
+## 🛠️ Stack Tecnológica
+
+- **Backend**: CodeIgniter 4 (PHP Framework)
+- **Frontend**: Bootstrap 5, Font Awesome, SweetAlert2
+- **Banco de Dados**: MySQL/MariaDB com migrações
+- **Containerização**: Docker & Docker Compose
+- **Testes**: PHPUnit com SQLite em memória
+- **Validação**: Regras customizadas em português
+- **Notificações**: SweetAlert2 integrado com flashdata
+
 ## Pré-requisitos
 
 ### Opção 1: Docker (Recomendado - mais fácil)
