@@ -23,10 +23,10 @@ services:
         container_name: mysql
         restart: unless-stopped
         environment:
-            MYSQL_DATABASE: ${database.default.database:-books_management_ci4}
-            MYSQL_ROOT_PASSWORD: ${database.default.password:-root}
-            MYSQL_PASSWORD: ${database.default.password:-root}
-            MYSQL_USER: ${database.default.username:-root}
+            MYSQL_DATABASE: books_management_ci4
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_PASSWORD: root
+            MYSQL_USER: root
         volumes:
             - mysql_data:/var/lib/mysql
         ports:
