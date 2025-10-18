@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libicu-dev \
     default-mysql-client \
-    netcat \
+    netcat-traditional \
     zip \
     unzip \
     nodejs \
