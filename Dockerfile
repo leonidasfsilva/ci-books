@@ -103,7 +103,7 @@ done\n\
 \n\
 # Run database migrations\n\
 echo "Running migrations..."\n\
-if php spark migrate 2>/dev/null; then\n\
+if CI_ENVIRONMENT=development php spark migrate; then\n\
     echo "✅ Migrations completed"\n\
 else\n\
     echo "❌ Migrations failed"\n\
@@ -112,7 +112,7 @@ fi\n\
 \n\
 # Run database seeds\n\
 echo "Running seeds..."\n\
-if php spark db:seed CreateSampleData 2>/dev/null; then\n\
+if CI_ENVIRONMENT=development php spark db:seed CreateSampleData; then\n\
     echo "✅ Seeds completed"\n\
 else\n\
     echo "❌ Seeds failed"\n\
