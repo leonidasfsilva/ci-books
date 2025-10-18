@@ -10,12 +10,13 @@ services:
     environment:
       - CI_ENVIRONMENT=development
       - app.baseURL=http://localhost:8080/
-      - database.default.hostname=172.20.0.2
+      - database.default.hostname=mysql
       - database.default.database=books_management_ci4
       - database.default.username=root
       - database.default.password=root
       - database.default.DBDriver=MySQLi
       - database.default.port=3306
+      - database.default.DBPrefix=
     depends_on:
       - mysql
     networks:

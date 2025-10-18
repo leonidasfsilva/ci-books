@@ -63,7 +63,7 @@ Container started at: $(date)"\n\
 \n\
 # Wait for MySQL to be ready\n\
 echo "Waiting for MySQL..."\n\
-timeout=60\n\
+timeout=120\n\
 counter=0\n\
 while ! nc -z mysql 3306; do\n\
     counter=$((counter + 1))\n\
@@ -77,14 +77,14 @@ done\n\
 echo "✅ MySQL port is open!"\n\
 \n\
 # Additional wait for MySQL to be fully ready\n\
-sleep 5\n\
+sleep 10\n\
 \n\
 # Test database connection\n\
 echo "Testing database connection..."\n\
-for i in {1..15}; do\n\
+for i in {1..30}; do\n\
     if php -r "\n\
         try {\n\
-            \$pdo = new PDO('\''mysql:host=mysql;dbname=books_management_ci4'\'', '\''root'\'', '\''root'\'');\n\
+            \$pdo = new PDO('\''mysql:host=mysql;dbname=books_management_ci4;charset=utf8'\'', '\''root'\'', '\''root'\'');\n\
             echo \"✅ Database connection successful\\n\";\n\
             exit(0);\n\
         } catch (Exception \$e) {\n\
@@ -94,8 +94,8 @@ for i in {1..15}; do\n\
     " 2>/dev/null; then\n\
         break\n\
     fi\n\
-    if [ $i -eq 15 ]; then\n\
-        echo "❌ Database connection failed after 15 attempts"\n\
+    if [ $i -eq 30 ]; then\n\
+        echo "❌ Database connection failed after 30 attempts"\n\
         exit 1\n\
     fi\n\
     sleep 2\n\
@@ -103,7 +103,7 @@ done\n\
 \n\
 # Run database migrations\n\
 echo "Running migrations..."\n\
-if CI_ENVIRONMENT=development php spark migrate; then\n\
+if CI_ENVIRONMENT=development php spark migrate --force; then\n\
     echo "✅ Migrations completed"\n\
 else\n\
     echo "❌ Migrations failed"\n\
@@ -112,13 +112,14 @@ fi\n\
 \n\
 # Run database seeds\n\
 echo "Running seeds..."\n\
-if CI_ENVIRONMENT=development php spark db:seed CreateSampleData; then\n\
+if CI_ENVIRONMENT=development php spark db:seed CreateSampleData --force; then\n\
     echo "✅ Seeds completed"\n\
 else\n\
     echo "❌ Seeds failed"\n\
     exit 1\n\
 fi\n\
 \n\
+echo "🎉 Application setup completed successfully!"\n\
 echo "Starting Apache..."\n\
 # Start Apache\n\
 exec apache2-foreground' > /usr/local/bin/start.sh \
