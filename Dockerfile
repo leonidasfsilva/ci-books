@@ -63,3 +63,22 @@ EXPOSE 80
 
 # Define volumes for Docker Compose compatibility
 VOLUME ["/var/www/html/writable"]
+
+# Create startup script
+RUN echo '#!/bin/bash\n\
+# Fix writable permissions after volume mount\n\
+chown -R www-data:www-data writable\n\
+chmod -R 755 writable\n\
+\n\
+# Run database migrations\n\
+php spark migrate\n\
+\n\
+# Run database seeds\n\
+php spark db:seed CreateSampleData\n\
+\n\
+# Start Apache\n\
+apache2-foreground' > /usr/local/bin/start.sh \
+    && chmod +x /usr/local/bin/start.sh
+
+# Start the application
+CMD ["/usr/local/bin/start.sh"]
