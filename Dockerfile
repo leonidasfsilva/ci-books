@@ -1,8 +1,4 @@
-# Use PHP 8.3 with Apache
 FROM php:8.3-apache
-
-# Set working directory
-WORKDIR /var/www/html
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -13,29 +9,22 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libzip-dev \
     libicu-dev \
-    default-mysql-client \
-    netcat-traditional \
     zip \
     unzip \
-    nodejs \
-    npm \
     && docker-php-ext-configure intl \
     && docker-php-ext-install pdo_mysql mysqli mbstring exif pcntl bcmath gd zip intl
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy existing application directory contents
-COPY . /var/www/html
+# Set working directory
+WORKDIR /var/www/html
 
-# Copy existing application directory permissions
-COPY --chown=www-data:www-data . /var/www/html
+# Copy application files
+COPY . /var/www/html
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
-
-# Install Node.js dependencies and build assets (if needed)
-RUN npm install && npm run build 2>/dev/null || true
 
 # Create writable directories and set permissions
 RUN mkdir -p writable/cache writable/debugbar writable/logs writable/session writable/uploads \
@@ -51,86 +40,4 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     Require all granted\n\
 </Directory>' >> /etc/apache2/apache2.conf
 
-# Expose port 80
 EXPOSE 80
-
-# Create startup script
-RUN echo '#!/bin/bash\n\
-set -e\n\
-\n\
-echo "=== Starting CI-Books Application ===\n\
-Container started at: $(date)"\n\
-\n\
-# Wait for MySQL to be ready\n\
-echo "Waiting for MySQL..."\n\
-timeout=120\n\
-counter=0\n\
-while ! nc -z mysql 3306; do\n\
-    counter=$((counter + 1))\n\
-    if [ $counter -gt $timeout ]; then\n\
-        echo "ERROR: MySQL did not respond within ${timeout} seconds"\n\
-        exit 1\n\
-    fi\n\
-    echo "Attempt $counter/$timeout: MySQL port not open yet..."\n\
-    sleep 1\n\
-done\n\
-echo "✅ MySQL port is open!"\n\
-\n\
-# Additional wait for MySQL to be fully ready\n\
-sleep 10\n\
-\n\
-# Test database connection\n\
-echo "Testing database connection..."\n\
-for i in {1..30}; do\n\
-    if php -r "\n\
-        try {\n\
-            \$pdo = new PDO('\''mysql:host=mysql;dbname=books_management_ci4;charset=utf8'\'', '\''root'\'', '\''root'\'');\n\
-            echo \"✅ Database connection successful\\n\";\n\
-            exit(0);\n\
-        } catch (Exception \$e) {\n\
-            echo \"Attempt $i: Database connection failed: \" . \$e->getMessage() . \"\\n\";\n\
-            exit(1);\n\
-        }\n\
-    " 2>/dev/null; then\n\
-        break\n\
-    fi\n\
-    if [ $i -eq 30 ]; then\n\
-        echo "❌ Database connection failed after 30 attempts"\n\
-        exit 1\n\
-    fi\n\
-    sleep 2\n\
-done\n\
-\n\
-# Run database migrations\n\
-echo "Running migrations..."\n\
-if CI_ENVIRONMENT=development php spark migrate --force; then\n\
-    echo "✅ Migrations completed"\n\
-else\n\
-    echo "❌ Migrations failed"\n\
-    exit 1\n\
-fi\n\
-\n\
-# Run database seeds\n\
-echo "Running seeds..."\n\
-if CI_ENVIRONMENT=development php spark db:seed CreateSampleData --force; then\n\
-    echo "✅ Seeds completed"\n\
-else\n\
-    echo "❌ Seeds failed"\n\
-    exit 1\n\
-fi\n\
-\n\
-echo "🎉 Application setup completed successfully!"\n\
-echo "Starting Apache..."\n\
-# Start Apache\n\
-exec apache2-foreground' > /usr/local/bin/start.sh \
-    && chmod +x /usr/local/bin/start.sh
-
-# Expose port 80
-EXPOSE 80
-
-# Health check
-HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=5 \
-    CMD curl -f http://localhost/ || exit 1
-
-# Start the application
-CMD ["/usr/local/bin/start.sh"]
