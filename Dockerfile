@@ -74,13 +74,26 @@ RUN echo '#!/bin/bash\n\
 chown -R www-data:www-data writable\n\
 chmod -R 755 writable\n\
 \n\
+# Wait for MySQL to be ready\n\
+echo "Waiting for MySQL..."\n\
+while ! php -r "try { new PDO('\''mysql:host=mysql;port=3306;dbname=books_management_ci4'\'', '\''root'\'', '\''root'\''); echo '\''OK'\''; } catch(Exception \$e) { }" | grep -q OK; do\n\
+    echo "MySQL not ready, waiting..."\n\
+    sleep 2\n\
+done\n\
+echo "MySQL is ready!"\n\
+\n\
 # Run database migrations\n\
+echo "Running migrations..."\n\
 php spark migrate\n\
+echo "Migrations completed"\n\
 \n\
 # Run database seeds\n\
+echo "Running seeds..."\n\
 php spark db:seed CreateSampleData\n\
+echo "Seeds completed"\n\
 \n\
 # Start Apache\n\
+echo "Starting Apache..."\n\
 apache2-foreground' > /usr/local/bin/start.sh \
     && chmod +x /usr/local/bin/start.sh
 
