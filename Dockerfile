@@ -79,7 +79,7 @@ echo "✅ MySQL is ready!"\n\
 echo "Testing database connection..."\n\
 php -r "\n\
 try {\n\
-    \$pdo = new PDO('mysql:host=mysql;dbname=books_management_ci4', 'root', 'root');\n\
+    \$pdo = new PDO('\''mysql:host=mysql;dbname=books_management_ci4'\'', '\''root'\'', '\''root'\'');\n\
     echo \"✅ Database connection successful\\n\";\n\
 } catch (Exception \$e) {\n\
     echo \"❌ Database connection failed: \" . \$e->getMessage() . \"\\n\";\n\
@@ -89,17 +89,25 @@ try {\n\
 \n\
 # Run database migrations\n\
 echo "Running migrations..."\n\
-php spark migrate\n\
-echo "✅ Migrations completed"\n\
+if php spark migrate; then\n\
+    echo "✅ Migrations completed"\n\
+else\n\
+    echo "❌ Migrations failed"\n\
+    exit 1\n\
+fi\n\
 \n\
 # Run database seeds\n\
 echo "Running seeds..."\n\
-php spark db:seed CreateSampleData\n\
-echo "✅ Seeds completed"\n\
+if php spark db:seed CreateSampleData; then\n\
+    echo "✅ Seeds completed"\n\
+else\n\
+    echo "❌ Seeds failed"\n\
+    exit 1\n\
+fi\n\
 \n\
 echo "Starting Apache..."\n\
 # Start Apache\n\
-apache2-foreground' > /usr/local/bin/start.sh \
+exec apache2-foreground' > /usr/local/bin/start.sh \
     && chmod +x /usr/local/bin/start.sh
 
 # Expose port 80
