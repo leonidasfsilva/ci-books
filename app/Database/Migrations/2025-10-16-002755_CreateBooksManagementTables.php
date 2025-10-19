@@ -4,6 +4,10 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
+/**
+ * @property \CodeIgniter\Database\BaseConnection $db
+ */
+
 class CreateBooksManagementTables extends Migration
 {
     public function up()
