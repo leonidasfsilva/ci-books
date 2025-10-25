@@ -96,13 +96,13 @@ Report Controller (Tests\Unit\ReportController)
 Subject Controller (Tests\Unit\SubjectController)
  [x] Index returns view with subjects
  [ ] Create get returns view
- [ ] Create post valid data
- [ ] Create post invalid data
- [ ] Create post duplicate description
+ [x] Create post valid data
+ [x] Create post invalid data
+ [x] Create post duplicate description
  [ ] Edit get valid id
  [x] Edit get invalid id
- [ ] Edit post valid data
- [ ] Edit post invalid data
+ [x] Edit post valid data
+ [x] Edit post invalid data
  [x] Delete valid id
  [x] Delete invalid id
  [x] Delete subject with books
@@ -120,7 +120,7 @@ Subject Model (Tests\Unit\SubjectModel)
  [x] Insert invalid subject
  [x] Find subject by id
  [x] Find non existent subject
- [x] Find all subjects
+ [ ] Find all subjects
  [ ] Update subject
  [x] Update with duplicate description
  [x] Delete subject
